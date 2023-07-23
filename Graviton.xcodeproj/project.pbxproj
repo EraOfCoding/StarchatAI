@@ -26,8 +26,6 @@
 		0FBEA6882A048D2500E4E34B /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6872A048D2500E4E34B /* SwiftyBeaver */; };
 		0FBEA68A2A048D2F00E4E34B /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6892A048D2F00E4E34B /* SwiftyBeaver */; };
 		872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 872EA23C2A5D17B200AC2280 /* SnapKit */; };
-		876E6EED2A556F34003A8F88 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 876E6EEC2A556F34003A8F88 /* Alamofire */; };
-		876E6EF12A5570D3003A8F88 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 876E6EF02A5570D3003A8F88 /* Moya */; };
 		877C8AEC2A57F84E00686838 /* InfoHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AEB2A57F84E00686838 /* InfoHostingController.swift */; };
 		877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AED2A57F87A00686838 /* InfoView .swift */; };
 		879B8AFF2A5418CC00847086 /* ObserverNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */; };
@@ -478,11 +476,9 @@
 				0FBEA6712A048A9F00E4E34B /* OrderedSet in Frameworks */,
 				0FBEA6832A048CF100E4E34B /* XLPagerTabStrip in Frameworks */,
 				872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */,
-				876E6EF12A5570D3003A8F88 /* Moya in Frameworks */,
 				FC22B2BE1FF317EC002AE044 /* YinYang.framework in Frameworks */,
 				EFE8BF6A1DD86B2B000F0A79 /* Orbits.framework in Frameworks */,
 				0F37D43F2A0495CF0053422A /* Realm in Frameworks */,
-				876E6EED2A556F34003A8F88 /* Alamofire in Frameworks */,
 				0FBEA65A2A047DBC00E4E34B /* SQLite in Frameworks */,
 				0F37D4412A0495CF0053422A /* RealmSwift in Frameworks */,
 				0F37D4472A0496650053422A /* MathUtil in Frameworks */,
@@ -1210,8 +1206,6 @@
 				0F37D4402A0495CF0053422A /* RealmSwift */,
 				0F37D4462A0496650053422A /* MathUtil */,
 				0F37D44C2A0496C60053422A /* StarryNight */,
-				876E6EEC2A556F34003A8F88 /* Alamofire */,
-				876E6EF02A5570D3003A8F88 /* Moya */,
 				872EA23C2A5D17B200AC2280 /* SnapKit */,
 			);
 			productName = Graviton;
@@ -1392,8 +1386,6 @@
 				0FBEA6812A048CF100E4E34B /* XCRemoteSwiftPackageReference "XLPagerTabStrip" */,
 				0FBEA6862A048D2500E4E34B /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				0F37D43D2A0495CF0053422A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
-				876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */,
 				872EA23B2A5D17B100AC2280 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EFC2C6951D88D02F0031AA9C /* Products */;
@@ -2427,22 +2419,6 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2529,16 +2505,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 872EA23B2A5D17B100AC2280 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		876E6EEC2A556F34003A8F88 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		876E6EF02A5570D3003A8F88 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
