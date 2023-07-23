@@ -16,7 +16,8 @@ import XLPagerTabStrip
 class BodyInfoViewController: UITableViewController {
     var target: ObserveTarget!
     var ephemerisId: SubscriptionUUID!
-
+    private var information = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "infoCell")
@@ -25,6 +26,7 @@ class BodyInfoViewController: UITableViewController {
         tableView.separatorColor = Constants.Menu.separatorColor
         tableView.backgroundColor = UIColor.clear
         setUpBlurredBackground()
+        
     }
 
     private func rowForPositionSection(_ row: Int) -> Int {
@@ -50,6 +52,8 @@ class BodyInfoViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "infoCell")
+        
         let sectionHeader: String
         switch target! {
         case .star:
@@ -58,9 +62,13 @@ class BodyInfoViewController: UITableViewController {
             sectionHeader = ["Position", "Physical Properties"][section]
         }
         let header = HeaderView()
-        header.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3031194982)
-        header.textLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        header.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        header.textLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         header.textLabel.text = sectionHeader
+        if let text = cell.textLabel?.text, let detailText = cell.detailTextLabel?.text {
+            information += "\(text): \(detailText)\n"
+        }
+        
         return header
     }
 
@@ -75,6 +83,7 @@ class BodyInfoViewController: UITableViewController {
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt _: IndexPath) {
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.textColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         cell.selectionStyle = .none
     }
 

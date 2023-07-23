@@ -28,13 +28,22 @@ class ObserverTitleOverlayView: UIView {
         button.titleLabel?.textAlignment = .center
         button.setTitle("<Title>", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1.5
+        button.layer.cornerRadius = 16
+        button.layer.masksToBounds = true
+
+        
         return button
     }()
+    
 
     lazy var focusButton: UIButton = {
-        let button = UIButton(type: UIButtonType.custom)
-        button.setImage(#imageLiteral(resourceName: "menu_icon_target"), for: .normal)
+        let button = UIButton(type: .custom)
+        let image = UIImage(named: "menu_icon_target")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(focusTapped(sender:)), for: .touchUpInside)
+        button.imageView?.tintColor = .white
         return button
     }()
 
@@ -62,8 +71,8 @@ class ObserverTitleOverlayView: UIView {
         vibrancyEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(titleButton)
         blurEffectView.contentView.addSubview(vibrancyEffectView)
-        vibrancyEffectView.contentView.addSubview(focusButton)
-        focusButton.frame = CGRect(x: vibrancyEffectView.contentView.bounds.width - 60, y: 0, width: 60, height: 44)
+        addSubview(focusButton)
+        focusButton.frame = CGRect(x: vibrancyEffectView.contentView.bounds.width - 60, y: 8, width: 60, height: 44)
         focusButton.autoresizingMask = .flexibleLeftMargin
         titleButton.translatesAutoresizingMaskIntoConstraints = false
         titleButton.addConstraint(titleButton.heightAnchor.constraint(equalToConstant: 44))
@@ -71,7 +80,7 @@ class ObserverTitleOverlayView: UIView {
             [
                 titleButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
                 titleButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-                titleButton.topAnchor.constraint(equalTo: topAnchor),
+                titleButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             ]
         )
     }

@@ -25,6 +25,23 @@
 		0FBEA6852A048D0800E4E34B /* SpaceTime in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6842A048D0800E4E34B /* SpaceTime */; };
 		0FBEA6882A048D2500E4E34B /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6872A048D2500E4E34B /* SwiftyBeaver */; };
 		0FBEA68A2A048D2F00E4E34B /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6892A048D2F00E4E34B /* SwiftyBeaver */; };
+		872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 872EA23C2A5D17B200AC2280 /* SnapKit */; };
+		876E6EED2A556F34003A8F88 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 876E6EEC2A556F34003A8F88 /* Alamofire */; };
+		876E6EF12A5570D3003A8F88 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 876E6EF02A5570D3003A8F88 /* Moya */; };
+		877C8AEC2A57F84E00686838 /* InfoHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AEB2A57F84E00686838 /* InfoHostingController.swift */; };
+		877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AED2A57F87A00686838 /* InfoView .swift */; };
+		879B8AFF2A5418CC00847086 /* ObserverNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */; };
+		879B8B002A5418CC00847086 /* ObserverLocationMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF72A5418CB00847086 /* ObserverLocationMenuController.swift */; };
+		879B8B012A5418CC00847086 /* ObserveTargetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF82A5418CB00847086 /* ObserveTargetSearchViewController.swift */; };
+		879B8B022A5418CC00847086 /* ObserverMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF92A5418CB00847086 /* ObserverMenuController.swift */; };
+		879B8B032A5418CC00847086 /* BodyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFA2A5418CB00847086 /* BodyInfoViewController.swift */; };
+		879B8B042A5418CC00847086 /* ObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFB2A5418CB00847086 /* ObserverViewController.swift */; };
+		879B8B052A5418CC00847086 /* ObserverMenuMultipleSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFC2A5418CC00847086 /* ObserverMenuMultipleSelectController.swift */; };
+		879B8B062A5418CC00847086 /* ObserverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFD2A5418CC00847086 /* ObserverTableViewController.swift */; };
+		879B8B072A5418CC00847086 /* ObserverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */; };
+		879B8B092A5536EB00847086 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B082A5536EB00847086 /* ChatView.swift */; };
+		879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B0A2A5538D800847086 /* ChatHostingController .swift */; };
+		87EF91072A55DC3400275E9C /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EF91062A55DC3400275E9C /* KeyboardManager.swift */; };
 		EF2A67941EF9D0C700C95AC3 /* Kepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67931EF9D0C700C95AC3 /* Kepler.swift */; };
 		EF2A67961EFA09AE00C95AC3 /* CompassRoseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */; };
 		EF32F05B1E3C488C00AD8778 /* CelestialBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF32F05A1E3C488C00AD8778 /* CelestialBody.swift */; };
@@ -61,8 +78,6 @@
 		EFE8BF7C1DD86B38000F0A79 /* Orbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE8BF771DD86B38000F0A79 /* Orbit.swift */; };
 		EFFF66D41E9F21700076BE4A /* CelestialEquatorLineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFF66D31E9F21700076BE4A /* CelestialEquatorLineNode.swift */; };
 		EFFFB27C1EA0608A0023C93B /* EclipticLineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFB27B1EA0608A0023C93B /* EclipticLineNode.swift */; };
-		FC099E271F0F5A6400A65F73 /* ObserverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC099E261F0F5A6400A65F73 /* ObserverDetailViewController.swift */; };
-		FC099E2A1F0F729E00A65F73 /* BodyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC099E291F0F729E00A65F73 /* BodyInfoViewController.swift */; };
 		FC099E331F1743C600A65F73 /* CormorantSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC099E2D1F1743C600A65F73 /* CormorantSC-Bold.ttf */; };
 		FC099E341F1743C600A65F73 /* CormorantSC-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC099E2E1F1743C600A65F73 /* CormorantSC-Light.ttf */; };
 		FC099E351F1743C600A65F73 /* CormorantSC-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC099E2F1F1743C600A65F73 /* CormorantSC-Medium.ttf */; };
@@ -116,7 +131,6 @@
 		FC38ED1D1F417A9C00E9EEC9 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC38ED1C1F417A9C00E9EEC9 /* Assertions.swift */; };
 		FC44EADD1EBDC18500241BF9 /* RiseTransitSetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC44EADC1EBDC18500241BF9 /* RiseTransitSetInfo.swift */; };
 		FC4D1E6A1FAFFAB700011478 /* ObserveTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D1E691FAFFAB700011478 /* ObserveTarget.swift */; };
-		FC4D1E6E1FB44A4E00011478 /* ObserveTargetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D1E6D1FB44A4E00011478 /* ObserveTargetSearchViewController.swift */; };
 		FC4D1E731FC94E3A00011478 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D1E721FC94E3A00011478 /* InformationViewController.swift */; };
 		FC56169C1FDD3D92005B5702 /* PushAsideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC56169B1FDD3D92005B5702 /* PushAsideTransition.swift */; };
 		FC5616A41FE0F285005B5702 /* GravitonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5616A31FE0F285005B5702 /* GravitonUITests.swift */; };
@@ -127,7 +141,6 @@
 		FC6619AA1EF26CB900B670CC /* AttitudeStabilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6619A91EF26CB900B670CC /* AttitudeStabilizer.swift */; };
 		FC6619AC1EF271E500B670CC /* control_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC6619AB1EF271E500B670CC /* control_menu.plist */; };
 		FC6913871EC14E5C00F9B3B5 /* CelestialBodyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6913861EC14E5C00F9B3B5 /* CelestialBodyNode.swift */; };
-		FC6B88531EEC96B1007EFE2E /* ObserverMenuMultipleSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B88521EEC96B1007EFE2E /* ObserverMenuMultipleSelectController.swift */; };
 		FC6B88571EEC9764007EFE2E /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B88561EEC9764007EFE2E /* BaseTableViewController.swift */; };
 		FC7088241FEB4AFD00A1048F /* OccationalPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7088231FEB4AFD00A1048F /* OccationalPrompt.swift */; };
 		FC7088261FEF940B00A1048F /* MeridianLineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7088251FEF940B00A1048F /* MeridianLineNode.swift */; };
@@ -139,8 +152,6 @@
 		FC7D62041E9B498400BEA5BE /* content_rendering_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC7D62021E9B498400BEA5BE /* content_rendering_menu.plist */; };
 		FC7D62051E9B498400BEA5BE /* main_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC7D62031E9B498400BEA5BE /* main_menu.plist */; };
 		FC959E581E9B4D960026B222 /* ObserverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E551E9B4D960026B222 /* ObserverScene.swift */; };
-		FC959E5D1E9B4E990026B222 /* ObserverMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E5B1E9B4E990026B222 /* ObserverMenuController.swift */; };
-		FC959E5E1E9B4E990026B222 /* ObserverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E5C1E9B4E990026B222 /* ObserverViewController.swift */; };
 		FC959E621E9B4FEC0026B222 /* CameraResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E601E9B4FEC0026B222 /* CameraResponsive.swift */; };
 		FC959E631E9B4FEC0026B222 /* FocusingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E611E9B4FEC0026B222 /* FocusingSupport.swift */; };
 		FC959E681E9B50340026B222 /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC959E671E9B50340026B222 /* SceneController.swift */; };
@@ -162,7 +173,6 @@
 		FCB2BDBB1F2E6CED002288BE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2BDBA1F2E6CED002288BE /* TabBarController.swift */; };
 		FCB2C1311F330133002288BE /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C1301F330133002288BE /* CityManager.swift */; };
 		FCB2C1341F331760002288BE /* MenuLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C1331F331760002288BE /* MenuLocationCell.swift */; };
-		FCB2C1361F3323AB002288BE /* ObserverLocationMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C1351F3323AB002288BE /* ObserverLocationMenuController.swift */; };
 		FCB2C13A1F35D321002288BE /* cities.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = FCB2C1371F35AC5E002288BE /* cities.sqlite3 */; };
 		FCB2C13E1F3FE050002288BE /* Orbits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C13D1F3FE050002288BE /* Orbits.swift */; };
 		FCB365A81EB8565C00027E82 /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB365A71EB8565C00027E82 /* Textures.xcassets */; };
@@ -183,11 +193,9 @@
 		FCCF5B6F1EBF1A9D00B8004E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCF5B631EBF1A9D00B8004E /* Parser.swift */; };
 		FCCF5B711EBF1A9D00B8004E /* ResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCF5B641EBF1A9D00B8004E /* ResponseValidator.swift */; };
 		FCD5B6B21F0CDF23005213DC /* Vector3+Oblique.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B6B11F0CDF23005213DC /* Vector3+Oblique.swift */; };
-		FCD62BDA1F7A287E00F8CBA6 /* ObserverNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD62BD91F7A287E00F8CBA6 /* ObserverNavigationController.swift */; };
 		FCD62BDC1F7A2A8900F8CBA6 /* SolarSystemNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD62BDB1F7A2A8900F8CBA6 /* SolarSystemNavigationController.swift */; };
 		FCE0A7501E8700850009EFCB /* PropertyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0A74F1E8700850009EFCB /* PropertyExtractor.swift */; };
 		FCE0A7541E8919110009EFCB /* PlutoPropertyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0A7531E8919110009EFCB /* PlutoPropertyExtractor.swift */; };
-		FCE1216F200C75820069A569 /* ObserverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE1216E200C75820069A569 /* ObserverTableViewController.swift */; };
 		FCE5B94A200A034F00B46B4B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE5B949200A034F00B46B4B /* HeaderView.swift */; };
 		FCE9DB861F8F504E008631DC /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE9DB851F8F504E008631DC /* Device.swift */; };
 		FCEC58291F8CA8E3008860BB /* UITableViewController+BlurredBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEC58281F8CA8E3008860BB /* UITableViewController+BlurredBackground.swift */; };
@@ -293,6 +301,20 @@
 		0F37D44E2A0496F80053422A /* KelvinColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KelvinColor.h; sourceTree = "<group>"; };
 		0F37D44F2A0496F80053422A /* KelvinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KelvinColor.swift; sourceTree = "<group>"; };
 		0FBEA68D2A048ECB00E4E34B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		877C8AEB2A57F84E00686838 /* InfoHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHostingController.swift; sourceTree = "<group>"; };
+		877C8AED2A57F87A00686838 /* InfoView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoView .swift"; sourceTree = "<group>"; };
+		879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNavigationController.swift; sourceTree = "<group>"; };
+		879B8AF72A5418CB00847086 /* ObserverLocationMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverLocationMenuController.swift; sourceTree = "<group>"; };
+		879B8AF82A5418CB00847086 /* ObserveTargetSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveTargetSearchViewController.swift; sourceTree = "<group>"; };
+		879B8AF92A5418CB00847086 /* ObserverMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverMenuController.swift; sourceTree = "<group>"; };
+		879B8AFA2A5418CB00847086 /* BodyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyInfoViewController.swift; sourceTree = "<group>"; };
+		879B8AFB2A5418CB00847086 /* ObserverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverViewController.swift; sourceTree = "<group>"; };
+		879B8AFC2A5418CC00847086 /* ObserverMenuMultipleSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverMenuMultipleSelectController.swift; sourceTree = "<group>"; };
+		879B8AFD2A5418CC00847086 /* ObserverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverTableViewController.swift; sourceTree = "<group>"; };
+		879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverDetailViewController.swift; sourceTree = "<group>"; };
+		879B8B082A5536EB00847086 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		879B8B0A2A5538D800847086 /* ChatHostingController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatHostingController .swift"; sourceTree = "<group>"; };
+		87EF91062A55DC3400275E9C /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		EF2A67931EF9D0C700C95AC3 /* Kepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kepler.swift; sourceTree = "<group>"; };
 		EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassRoseNode.swift; sourceTree = "<group>"; };
 		EF32F0581E3B988800AD8778 /* NaifTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaifTest.swift; sourceTree = "<group>"; };
@@ -310,7 +332,7 @@
 		EFA4FEE51EBDB92A001919DD /* ObserverSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverSite.swift; sourceTree = "<group>"; };
 		EFA4FEE81EBDB94B001919DD /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		EFAC9BC81E9D849200AAAC95 /* LineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNode.swift; sourceTree = "<group>"; };
-		EFC2C6941D88D02F0031AA9C /* Graviton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graviton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC2C6941D88D02F0031AA9C /* Starchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC2C6971D88D02F0031AA9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFC2C69E1D88D02F0031AA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFC2C6A01D88D02F0031AA9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -331,8 +353,6 @@
 		EFF3035F2A50DD1E00083904 /* StarryNight */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StarryNight; sourceTree = "<group>"; };
 		EFFF66D31E9F21700076BE4A /* CelestialEquatorLineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelestialEquatorLineNode.swift; sourceTree = "<group>"; };
 		EFFFB27B1EA0608A0023C93B /* EclipticLineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EclipticLineNode.swift; sourceTree = "<group>"; };
-		FC099E261F0F5A6400A65F73 /* ObserverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverDetailViewController.swift; sourceTree = "<group>"; };
-		FC099E291F0F729E00A65F73 /* BodyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyInfoViewController.swift; sourceTree = "<group>"; };
 		FC099E2D1F1743C600A65F73 /* CormorantSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantSC-Bold.ttf"; sourceTree = "<group>"; };
 		FC099E2E1F1743C600A65F73 /* CormorantSC-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantSC-Light.ttf"; sourceTree = "<group>"; };
 		FC099E2F1F1743C600A65F73 /* CormorantSC-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantSC-Medium.ttf"; sourceTree = "<group>"; };
@@ -384,7 +404,6 @@
 		FC38ED1C1F417A9C00E9EEC9 /* Assertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assertions.swift; sourceTree = "<group>"; };
 		FC44EADC1EBDC18500241BF9 /* RiseTransitSetInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiseTransitSetInfo.swift; sourceTree = "<group>"; };
 		FC4D1E691FAFFAB700011478 /* ObserveTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveTarget.swift; sourceTree = "<group>"; };
-		FC4D1E6D1FB44A4E00011478 /* ObserveTargetSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveTargetSearchViewController.swift; sourceTree = "<group>"; };
 		FC4D1E721FC94E3A00011478 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		FC56169B1FDD3D92005B5702 /* PushAsideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAsideTransition.swift; sourceTree = "<group>"; };
 		FC5616A11FE0F285005B5702 /* GravitonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravitonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,7 +416,6 @@
 		FC6619A91EF26CB900B670CC /* AttitudeStabilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttitudeStabilizer.swift; sourceTree = "<group>"; };
 		FC6619AB1EF271E500B670CC /* control_menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = control_menu.plist; sourceTree = "<group>"; };
 		FC6913861EC14E5C00F9B3B5 /* CelestialBodyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelestialBodyNode.swift; sourceTree = "<group>"; };
-		FC6B88521EEC96B1007EFE2E /* ObserverMenuMultipleSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverMenuMultipleSelectController.swift; sourceTree = "<group>"; };
 		FC6B88561EEC9764007EFE2E /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		FC7088231FEB4AFD00A1048F /* OccationalPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccationalPrompt.swift; sourceTree = "<group>"; };
 		FC7088251FEF940B00A1048F /* MeridianLineNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeridianLineNode.swift; sourceTree = "<group>"; };
@@ -409,8 +427,6 @@
 		FC7D62021E9B498400BEA5BE /* content_rendering_menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = content_rendering_menu.plist; sourceTree = "<group>"; };
 		FC7D62031E9B498400BEA5BE /* main_menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main_menu.plist; sourceTree = "<group>"; };
 		FC959E551E9B4D960026B222 /* ObserverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverScene.swift; sourceTree = "<group>"; };
-		FC959E5B1E9B4E990026B222 /* ObserverMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverMenuController.swift; sourceTree = "<group>"; };
-		FC959E5C1E9B4E990026B222 /* ObserverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverViewController.swift; sourceTree = "<group>"; };
 		FC959E601E9B4FEC0026B222 /* CameraResponsive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraResponsive.swift; sourceTree = "<group>"; };
 		FC959E611E9B4FEC0026B222 /* FocusingSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusingSupport.swift; sourceTree = "<group>"; };
 		FC959E671E9B50340026B222 /* SceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
@@ -435,7 +451,6 @@
 		FCB2BDBA1F2E6CED002288BE /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FCB2C1301F330133002288BE /* CityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
 		FCB2C1331F331760002288BE /* MenuLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLocationCell.swift; sourceTree = "<group>"; };
-		FCB2C1351F3323AB002288BE /* ObserverLocationMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverLocationMenuController.swift; sourceTree = "<group>"; };
 		FCB2C1371F35AC5E002288BE /* cities.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cities.sqlite3; sourceTree = "<group>"; };
 		FCB2C13D1F3FE050002288BE /* Orbits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orbits.swift; sourceTree = "<group>"; };
 		FCB365A71EB8565C00027E82 /* Textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Textures.xcassets; sourceTree = "<group>"; };
@@ -458,11 +473,9 @@
 		FCCF5B631EBF1A9D00B8004E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		FCCF5B641EBF1A9D00B8004E /* ResponseValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseValidator.swift; sourceTree = "<group>"; };
 		FCD5B6B11F0CDF23005213DC /* Vector3+Oblique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector3+Oblique.swift"; sourceTree = "<group>"; };
-		FCD62BD91F7A287E00F8CBA6 /* ObserverNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverNavigationController.swift; sourceTree = "<group>"; };
 		FCD62BDB1F7A2A8900F8CBA6 /* SolarSystemNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemNavigationController.swift; sourceTree = "<group>"; };
 		FCE0A74F1E8700850009EFCB /* PropertyExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyExtractor.swift; sourceTree = "<group>"; };
 		FCE0A7531E8919110009EFCB /* PlutoPropertyExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlutoPropertyExtractor.swift; sourceTree = "<group>"; };
-		FCE1216E200C75820069A569 /* ObserverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverTableViewController.swift; sourceTree = "<group>"; };
 		FCE5B949200A034F00B46B4B /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		FCE9DB851F8F504E008631DC /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		FCEC58281F8CA8E3008860BB /* UITableViewController+BlurredBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+BlurredBackground.swift"; sourceTree = "<group>"; };
@@ -509,9 +522,12 @@
 			files = (
 				0FBEA6712A048A9F00E4E34B /* OrderedSet in Frameworks */,
 				0FBEA6832A048CF100E4E34B /* XLPagerTabStrip in Frameworks */,
+				872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */,
+				876E6EF12A5570D3003A8F88 /* Moya in Frameworks */,
 				FC22B2BE1FF317EC002AE044 /* YinYang.framework in Frameworks */,
 				EFE8BF6A1DD86B2B000F0A79 /* Orbits.framework in Frameworks */,
 				0F37D43F2A0495CF0053422A /* Realm in Frameworks */,
+				876E6EED2A556F34003A8F88 /* Alamofire in Frameworks */,
 				0FBEA65A2A047DBC00E4E34B /* SQLite in Frameworks */,
 				0F37D4412A0495CF0053422A /* RealmSwift in Frameworks */,
 				0F37D4472A0496650053422A /* MathUtil in Frameworks */,
@@ -608,7 +624,7 @@
 		EFC2C6951D88D02F0031AA9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFC2C6941D88D02F0031AA9C /* Graviton.app */,
+				EFC2C6941D88D02F0031AA9C /* Starchat.app */,
 				EFE8BF551DD86B2B000F0A79 /* Orbits.framework */,
 				EF4BD3811E57E58D009D2698 /* OrbitsTests.xctest */,
 				FC22B2A91FF317EC002AE044 /* YinYang.framework */,
@@ -1015,15 +1031,20 @@
 		FC7D62061E9B4C8400BEA5BE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FCE1216E200C75820069A569 /* ObserverTableViewController.swift */,
-				FC959E5C1E9B4E990026B222 /* ObserverViewController.swift */,
-				FC099E261F0F5A6400A65F73 /* ObserverDetailViewController.swift */,
-				FC4D1E6D1FB44A4E00011478 /* ObserveTargetSearchViewController.swift */,
-				FC099E291F0F729E00A65F73 /* BodyInfoViewController.swift */,
-				FC959E5B1E9B4E990026B222 /* ObserverMenuController.swift */,
-				FCB2C1351F3323AB002288BE /* ObserverLocationMenuController.swift */,
-				FC6B88521EEC96B1007EFE2E /* ObserverMenuMultipleSelectController.swift */,
-				FCD62BD91F7A287E00F8CBA6 /* ObserverNavigationController.swift */,
+				879B8AFA2A5418CB00847086 /* BodyInfoViewController.swift */,
+				879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */,
+				879B8AF72A5418CB00847086 /* ObserverLocationMenuController.swift */,
+				879B8AF92A5418CB00847086 /* ObserverMenuController.swift */,
+				879B8AFC2A5418CC00847086 /* ObserverMenuMultipleSelectController.swift */,
+				879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */,
+				879B8AFD2A5418CC00847086 /* ObserverTableViewController.swift */,
+				879B8AFB2A5418CB00847086 /* ObserverViewController.swift */,
+				879B8AF82A5418CB00847086 /* ObserveTargetSearchViewController.swift */,
+				879B8B082A5536EB00847086 /* ChatView.swift */,
+				87EF91062A55DC3400275E9C /* KeyboardManager.swift */,
+				879B8B0A2A5538D800847086 /* ChatHostingController .swift */,
+				877C8AEB2A57F84E00686838 /* InfoHostingController.swift */,
+				877C8AED2A57F87A00686838 /* InfoView .swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1290,9 +1311,12 @@
 				0F37D4402A0495CF0053422A /* RealmSwift */,
 				0F37D4462A0496650053422A /* MathUtil */,
 				0F37D44C2A0496C60053422A /* StarryNight */,
+				876E6EEC2A556F34003A8F88 /* Alamofire */,
+				876E6EF02A5570D3003A8F88 /* Moya */,
+				872EA23C2A5D17B200AC2280 /* SnapKit */,
 			);
 			productName = Graviton;
-			productReference = EFC2C6941D88D02F0031AA9C /* Graviton.app */;
+			productReference = EFC2C6941D88D02F0031AA9C /* Starchat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EFE8BF541DD86B2B000F0A79 /* Orbits */ = {
@@ -1469,6 +1493,9 @@
 				0FBEA6812A048CF100E4E34B /* XCRemoteSwiftPackageReference "XLPagerTabStrip" */,
 				0FBEA6862A048D2500E4E34B /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				0F37D43D2A0495CF0053422A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */,
+				872EA23B2A5D17B100AC2280 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EFC2C6951D88D02F0031AA9C /* Products */;
 			projectDirPath = "";
@@ -1607,9 +1634,14 @@
 				FC6913871EC14E5C00F9B3B5 /* CelestialBodyNode.swift in Sources */,
 				EFCCF3EB1EB1741900E49A38 /* Line.swift in Sources */,
 				FC959E711E9B51420026B222 /* SolarSystemScene.swift in Sources */,
+				879B8B062A5418CC00847086 /* ObserverTableViewController.swift in Sources */,
+				879B8B092A5536EB00847086 /* ChatView.swift in Sources */,
 				FC65E78E1EE2B55500393997 /* MenuButtonCell.swift in Sources */,
 				FC1CC2DE1EE01F92009FA252 /* ObserverCameraController.swift in Sources */,
 				FC6B88571EEC9764007EFE2E /* BaseTableViewController.swift in Sources */,
+				879B8B072A5418CC00847086 /* ObserverDetailViewController.swift in Sources */,
+				879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */,
+				879B8B022A5418CC00847086 /* ObserverMenuController.swift in Sources */,
 				FC959E731E9B514C0026B222 /* SolarSystemViewController.swift in Sources */,
 				FC959E6D1E9B50CE0026B222 /* TrackingLabelNode.swift in Sources */,
 				FC1CC2D61EE016CC009FA252 /* UINavigationBar+Config.swift in Sources */,
@@ -1625,12 +1657,15 @@
 				FCC11FC21FD9403C00235BFF /* ObserverTitleOverlayView.swift in Sources */,
 				EF48518A1D91EB8D00737CE4 /* CelestialNode.swift in Sources */,
 				FCCB89561EEE043300F1539E /* MotionManager.swift in Sources */,
+				877C8AEC2A57F84E00686838 /* InfoHostingController.swift in Sources */,
+				879B8B052A5418CC00847086 /* ObserverMenuMultipleSelectController.swift in Sources */,
 				FCFE7E2D202BC48500760633 /* Logging.swift in Sources */,
 				FCC50D3B1EE69CD7009045AC /* LocationAndTimeManager.swift in Sources */,
 				FCF2EA901EF633A600B787F8 /* TimeWarpVerticalBar.swift in Sources */,
 				FC959E631E9B4FEC0026B222 /* FocusingSupport.swift in Sources */,
+				879B8B002A5418CC00847086 /* ObserverLocationMenuController.swift in Sources */,
+				879B8AFF2A5418CC00847086 /* ObserverNavigationController.swift in Sources */,
 				FC4D1E731FC94E3A00011478 /* InformationViewController.swift in Sources */,
-				FC6B88531EEC96B1007EFE2E /* ObserverMenuMultipleSelectController.swift in Sources */,
 				FCE9DB861F8F504E008631DC /* Device.swift in Sources */,
 				FC1CC2DB1EE0171F009FA252 /* CameraController.swift in Sources */,
 				FCFBB7441E61E6E600624B4C /* Menu.swift in Sources */,
@@ -1640,14 +1675,12 @@
 				FC7088241FEB4AFD00A1048F /* OccationalPrompt.swift in Sources */,
 				FCE5B94A200A034F00B46B4B /* HeaderView.swift in Sources */,
 				FCFBB71F1E59FCF100624B4C /* WarpControl.swift in Sources */,
-				FC959E5E1E9B4E990026B222 /* ObserverViewController.swift in Sources */,
 				FC1CC2CA1EE01646009FA252 /* CelestialBodyObserverInfoManager.swift in Sources */,
-				FC099E271F0F5A6400A65F73 /* ObserverDetailViewController.swift in Sources */,
-				FCB2C1361F3323AB002288BE /* ObserverLocationMenuController.swift in Sources */,
 				FC56169C1FDD3D92005B5702 /* PushAsideTransition.swift in Sources */,
 				FC38ED1D1F417A9C00E9EEC9 /* Assertions.swift in Sources */,
 				FCB2C1341F331760002288BE /* MenuLocationCell.swift in Sources */,
 				FC099E411F1899A800A65F73 /* ObserverInfo.swift in Sources */,
+				879B8B032A5418CC00847086 /* BodyInfoViewController.swift in Sources */,
 				EF7A88EA1F034A6900CD3CD7 /* SceneKit+Util.swift in Sources */,
 				FC959E781E9B534C0026B222 /* ObserverSceneElement.swift in Sources */,
 				EFFF66D41E9F21700076BE4A /* CelestialEquatorLineNode.swift in Sources */,
@@ -1658,18 +1691,20 @@
 				FC959E621E9B4FEC0026B222 /* CameraResponsive.swift in Sources */,
 				FC1CC2C71EE01646009FA252 /* EphemerisManager.swift in Sources */,
 				FC1CC2D41EE016BC009FA252 /* UIImageEffects.m in Sources */,
-				FCD62BDA1F7A287E00F8CBA6 /* ObserverNavigationController.swift in Sources */,
 				FC959E581E9B4D960026B222 /* ObserverScene.swift in Sources */,
 				EF9867AF1EE0D8DF00486C64 /* DirectionMarkerNode.swift in Sources */,
 				FC959E681E9B50340026B222 /* SceneController.swift in Sources */,
+				87EF91072A55DC3400275E9C /* KeyboardManager.swift in Sources */,
 				FC959E7D1E9CB8060026B222 /* BooleanFlaggedNode.swift in Sources */,
 				FC099E451F1AD40D00A65F73 /* Formatters.swift in Sources */,
 				FC5616AE1FE122C8005B5702 /* RealmManager.swift in Sources */,
 				FCEC58291F8CA8E3008860BB /* UITableViewController+BlurredBackground.swift in Sources */,
 				FCBF424D1FA5764500AAD151 /* OrbitLineNode.swift in Sources */,
+				877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */,
 				0F37D4502A0496F80053422A /* KelvinColor.swift in Sources */,
 				FCFF7B111EA2145A00C4B006 /* Constants.swift in Sources */,
 				EFCCF3E71EB16EA200E49A38 /* FocusIndicatorNode.swift in Sources */,
+				879B8B012A5418CC00847086 /* ObserveTargetSearchViewController.swift in Sources */,
 				FCB2BDBB1F2E6CED002288BE /* TabBarController.swift in Sources */,
 				EFAC9BC91E9D849200AAAC95 /* LineNode.swift in Sources */,
 				FCB2C1311F330133002288BE /* CityManager.swift in Sources */,
@@ -1677,15 +1712,12 @@
 				EFFFB27C1EA0608A0023C93B /* EclipticLineNode.swift in Sources */,
 				FC7088261FEF940B00A1048F /* MeridianLineNode.swift in Sources */,
 				EF2A67961EFA09AE00C95AC3 /* CompassRoseNode.swift in Sources */,
-				FC4D1E6E1FB44A4E00011478 /* ObserveTargetSearchViewController.swift in Sources */,
 				FCEDA6141EC04B07005C7BFF /* CelestialBodyViewController.swift in Sources */,
-				FC959E5D1E9B4E990026B222 /* ObserverMenuController.swift in Sources */,
+				879B8B042A5418CC00847086 /* ObserverViewController.swift in Sources */,
 				FC1CC2C91EE01646009FA252 /* LocationSensitiveSubscriptionManager.swift in Sources */,
 				FCEDA6171EC04D19005C7BFF /* CelestialBodyScene.swift in Sources */,
 				FC1CC2CC1EE01646009FA252 /* SubscriptionManager.swift in Sources */,
 				FC1CC2CB1EE01646009FA252 /* RiseTransitSetManager.swift in Sources */,
-				FC099E2A1F0F729E00A65F73 /* BodyInfoViewController.swift in Sources */,
-				FCE1216F200C75820069A569 /* ObserverTableViewController.swift in Sources */,
 				FCB0644D20721AEE009907AE /* CelestialObjectCell.swift in Sources */,
 				FCFBB74F1E62CF4300624B4C /* MenuToggleCell.swift in Sources */,
 				FC7096FF1EF3898700D4FA30 /* Math.swift in Sources */,
@@ -1932,7 +1964,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1987,7 +2019,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -2005,8 +2037,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 52RD2GH5DP;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 589WRZ947H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2020,7 +2052,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enigmalabs.graviton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Starchat;
 				PROVISIONING_PROFILE = "afdfc92c-54ac-4ba2-9e72-54838ee536fd";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Graviton/Graviton-Bridging-Header.h";
@@ -2040,8 +2072,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = 52RD2GH5DP;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2055,7 +2087,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enigmalabs.graviton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Starchat;
 				PROVISIONING_PROFILE = "1d2dc78b-a0db-4d26-8304-aba7f8a3422c";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Graviton/Graviton-Bridging-Header.h";
@@ -2509,6 +2541,30 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		872EA23B2A5D17B100AC2280 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2590,6 +2646,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0FBEA6862A048D2500E4E34B /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		872EA23C2A5D17B200AC2280 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 872EA23B2A5D17B100AC2280 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		876E6EEC2A556F34003A8F88 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 876E6EEB2A556F34003A8F88 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		876E6EF02A5570D3003A8F88 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 876E6EEF2A5570D3003A8F88 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

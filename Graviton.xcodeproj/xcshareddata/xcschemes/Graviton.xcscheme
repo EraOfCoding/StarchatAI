@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EFC2C6931D88D02F0031AA9C"
-               BuildableName = "Graviton.app"
+               BuildableName = "Starchat.app"
                BlueprintName = "Graviton"
                ReferencedContainer = "container:Graviton.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC2C6931D88D02F0031AA9C"
-            BuildableName = "Graviton.app"
+            BuildableName = "Starchat.app"
             BlueprintName = "Graviton"
             ReferencedContainer = "container:Graviton.xcodeproj">
          </BuildableReference>
@@ -84,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC2C6931D88D02F0031AA9C"
-            BuildableName = "Graviton.app"
+            BuildableName = "Starchat.app"
             BlueprintName = "Graviton"
             ReferencedContainer = "container:Graviton.xcodeproj">
          </BuildableReference>
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC2C6931D88D02F0031AA9C"
-            BuildableName = "Graviton.app"
+            BuildableName = "Starchat.app"
             BlueprintName = "Graviton"
             ReferencedContainer = "container:Graviton.xcodeproj">
          </BuildableReference>

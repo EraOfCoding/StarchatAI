@@ -6,6 +6,7 @@
 //  Copyright © 2017 Ben Lu. All rights reserved.
 //
 
+
 import CoreImage
 import CoreMedia
 import MathUtil
@@ -32,7 +33,7 @@ class ObserverViewController: SceneController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = TextStyle.Font.monoLabelFont(size: 16)
-        button.addTarget(self, action: #selector(toggleTimeWarp(sender:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(toggleTimeWarp(sender:)), for: .touchUpInside)
         return button
     }()
 
@@ -91,6 +92,8 @@ class ObserverViewController: SceneController {
         Settings.default.subscribe(setting: .antialiasingMode, object: self) { [weak self] _, newKey in
             self?.updateAntialiasingMode(newKey)
         }
+        
+        self.navigationController?.tabBarController?.tabBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,7 +113,7 @@ class ObserverViewController: SceneController {
     }
 
     override var prefersStatusBarHidden: Bool {
-        return Device.isiPhoneX == false
+        false
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -135,12 +138,12 @@ class ObserverViewController: SceneController {
 
     private func setupViewElements() {
         navigationController?.navigationBar.tintColor = Constants.Menu.tintColor
-        let gyroItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu_icon_gyro"), style: .plain, target: self, action: #selector(gyroButtonTapped(sender:)))
+        let gyroItem = UIBarButtonItem(image: #imageLiteral(resourceName: "row_icon_stabilize"), style: .plain, target: self, action: #selector(gyroButtonTapped(sender:)))
         navigationItem.leftBarButtonItem = gyroItem
         navigationItem.titleView = titleBlurView
-        let settingItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu_icon_settings"), style: .plain, target: self, action: #selector(menuButtonTapped(sender:)))
+//        let settingItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu_icon_settings"), style: .plain, target: self, action: #selector(menuButtonTapped(sender:)))
         let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped(sender:)))
-        navigationItem.rightBarButtonItems = [settingItem, searchItem]
+        navigationItem.rightBarButtonItems = [searchItem]
 
         titleOverlayView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleOverlayView)
@@ -219,14 +222,14 @@ class ObserverViewController: SceneController {
 
     // MARK: - Button handling
 
-    @objc func menuButtonTapped(sender _: UIButton) {
-        let menuController = ObserverMenuController(style: .plain)
-        menuController.menu = Menu.main
-        let navigationController = UINavigationController(rootViewController: menuController)
-        navigationController.modalPresentationStyle = .overCurrentContext
-        navigationController.delegate = self
-        tabBarController?.present(navigationController, animated: true, completion: nil)
-    }
+//    @objc func menuButtonTapped(sender _: UIButton) {
+//        let menuController = ObserverMenuController(style: .plain)
+//        menuController.menu = Menu.main
+//        let navigationController = UINavigationController(rootViewController: menuController)
+//        navigationController.modalPresentationStyle = .overCurrentContext
+//        navigationController.delegate = self
+//        tabBarController?.present(navigationController, animated: true, completion: nil)
+//    }
 
     @objc func gyroButtonTapped(sender _: UIBarButtonItem) {
         MotionManager.default.toggleMotionUpdate()
@@ -363,22 +366,61 @@ extension ObserverViewController: ObserveTargetSearchViewControllerDelegate {
 
 extension ObserverViewController: ObserverTitleOverlayViewDelegate {
     func titleOverlayTapped(view _: ObserverTitleOverlayView) {
-        guard let detailVc = storyboard?.instantiateViewController(withIdentifier: "ObserverDetailViewController") as? ObserverDetailViewController else {
-            return
+//        guard let detailVc = storyboard?.instantiateViewController(withIdentifier: "ObserverDetailViewController") as? ObserverDetailViewController else {
+//            return
+//        }
+//        detailVc.delegate = self
+//        detailVc.target = target
+//        detailVc.ephemerisId = ephemerisSubscriptionIdentifier
+//        let navigationController = UINavigationController(rootViewController: detailVc)
+//        navigationController.modalPresentationStyle = .overCurrentContext
+//        navigationController.delegate = self
+//        tabBarController?.present(navigationController, animated: true, completion: nil)
+        
+//
+        var context = ""
+        
+        switch target! {
+        case let .star(star):
+            let row0Content = star.identity.contentAtRow(0)
+            context = row0Content.0 + ": " + row0Content.1 + ". Constellation: " + star.identity.constellation.name
+            
+        case .nearbyBody(_):
+            context = ""
         }
-        detailVc.delegate = self
-        detailVc.target = target
-        detailVc.ephemerisId = ephemerisSubscriptionIdentifier
-        let navigationController = UINavigationController(rootViewController: detailVc)
-        navigationController.modalPresentationStyle = .overCurrentContext
-        navigationController.delegate = self
+        
+        //        let chatView = ChatView(spaceObject: title.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "saturn", context: context.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "You%20are%20a%20space%20object")
+        //
+        //        let chatController = ChatHostingController(rootView: chatView)
+        
+        let infoView = InfoView(target: target, ephemerisId: ephemerisSubscriptionIdentifier, context: context.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "You%20are%20a%20space%20object")
+                
+        let infoController = InfoHostingController(rootView: infoView)
+
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissInfoController))
+
+        infoController.navigationItem.rightBarButtonItem = doneButton
+        infoController.navigationItem.title = String(describing: target!)
+
+        let navigationController = UINavigationController(rootViewController: infoController)
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController.modalPresentationStyle = .fullScreen
+
         tabBarController?.present(navigationController, animated: true, completion: nil)
+
+
     }
 
     func titleOverlayFocusTapped(view _: ObserverTitleOverlayView) {
         center(atTarget: target!)
     }
+    
+    @objc private func dismissInfoController() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+
 }
+
 
 extension ObserverViewController: UINavigationControllerDelegate {
     func navigationController(_: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from _: UIViewController, to _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -393,3 +435,9 @@ extension ObserverViewController: ObserverDetailViewControllerDelegate {
         focusAtTarget()
     }
 }
+
+private func stringify(_ str: CustomStringConvertible?) -> String? {
+    if str == nil { return nil }
+    return String(describing: str!)
+}
+
