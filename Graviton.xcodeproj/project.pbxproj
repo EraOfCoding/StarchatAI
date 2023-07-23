@@ -119,7 +119,6 @@
 		FC1CC2DE1EE01F92009FA252 /* ObserverCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CC2DD1EE01F92009FA252 /* ObserverCameraController.swift */; };
 		FC22B2A31FF24965002AE044 /* focus_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC22B2A21FF24965002AE044 /* focus_menu.plist */; };
 		FC22B2B21FF317EC002AE044 /* YinYang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC22B2A91FF317EC002AE044 /* YinYang.framework */; };
-		FC22B2B91FF317EC002AE044 /* YinYangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22B2B81FF317EC002AE044 /* YinYangTests.swift */; };
 		FC22B2BB1FF317EC002AE044 /* YinYang.h in Headers */ = {isa = PBXBuildFile; fileRef = FC22B2AB1FF317EC002AE044 /* YinYang.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC22B2BE1FF317EC002AE044 /* YinYang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC22B2A91FF317EC002AE044 /* YinYang.framework */; };
 		FC22B2BF1FF317EC002AE044 /* YinYang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC22B2A91FF317EC002AE044 /* YinYang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -133,7 +132,6 @@
 		FC4D1E6A1FAFFAB700011478 /* ObserveTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D1E691FAFFAB700011478 /* ObserveTarget.swift */; };
 		FC4D1E731FC94E3A00011478 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D1E721FC94E3A00011478 /* InformationViewController.swift */; };
 		FC56169C1FDD3D92005B5702 /* PushAsideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC56169B1FDD3D92005B5702 /* PushAsideTransition.swift */; };
-		FC5616A41FE0F285005B5702 /* GravitonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5616A31FE0F285005B5702 /* GravitonUITests.swift */; };
 		FC5616AE1FE122C8005B5702 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5616AD1FE122C8005B5702 /* RealmManager.swift */; };
 		FC65E78A1EE2B22E00393997 /* direction_marker_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC65E7891EE2B22E00393997 /* direction_marker_menu.plist */; };
 		FC65E78C1EE2B34100393997 /* direction_celestial_menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC65E78B1EE2B34100393997 /* direction_celestial_menu.plist */; };
@@ -168,7 +166,6 @@
 		FCA930BC1E2B8EA600100706 /* NaifCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA930BB1E2B8EA600100706 /* NaifCatalog.swift */; };
 		FCA930D71E2B8F1200100706 /* PhysicalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA930D51E2B8F1200100706 /* PhysicalConstants.swift */; };
 		FCA930DC1E2B8F3700100706 /* Ephemeris.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA930DB1E2B8F3700100706 /* Ephemeris.swift */; };
-		FCAA12621FE30F81008FCBC7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAA12611FE30F81008FCBC7 /* SnapshotHelper.swift */; };
 		FCB0644D20721AEE009907AE /* CelestialObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB0644C20721AEE009907AE /* CelestialObjectCell.swift */; };
 		FCB2BDBB1F2E6CED002288BE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2BDBA1F2E6CED002288BE /* TabBarController.swift */; };
 		FCB2C1311F330133002288BE /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C1301F330133002288BE /* CityManager.swift */; };
@@ -394,8 +391,6 @@
 		FC22B2AB1FF317EC002AE044 /* YinYang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YinYang.h; sourceTree = "<group>"; };
 		FC22B2AC1FF317EC002AE044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC22B2B11FF317EC002AE044 /* YinYangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YinYangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC22B2B81FF317EC002AE044 /* YinYangTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YinYangTests.swift; sourceTree = "<group>"; };
-		FC22B2BA1FF317EC002AE044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC22B2C61FF32BF0002AE044 /* PeriodicTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTerms.swift; sourceTree = "<group>"; };
 		FC22B2CC1FF3722F002AE044 /* LunaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunaUtil.swift; sourceTree = "<group>"; };
 		FC24353C1E15D80D002AC626 /* OrbitalMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OrbitalMotion.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -407,8 +402,6 @@
 		FC4D1E721FC94E3A00011478 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		FC56169B1FDD3D92005B5702 /* PushAsideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAsideTransition.swift; sourceTree = "<group>"; };
 		FC5616A11FE0F285005B5702 /* GravitonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravitonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC5616A31FE0F285005B5702 /* GravitonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravitonUITests.swift; sourceTree = "<group>"; };
-		FC5616A51FE0F285005B5702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC5616AD1FE122C8005B5702 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		FC65E7891EE2B22E00393997 /* direction_marker_menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = direction_marker_menu.plist; sourceTree = "<group>"; };
 		FC65E78B1EE2B34100393997 /* direction_celestial_menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = direction_celestial_menu.plist; sourceTree = "<group>"; };
@@ -446,7 +439,6 @@
 		FCA930E11E2B8F5400100706 /* HorizonsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HorizonsTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FCA930E21E2B8F5400100706 /* MotionParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionParserTest.swift; sourceTree = "<group>"; };
 		FCA930E71E2B8FEA00100706 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FCAA12611FE30F81008FCBC7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		FCB0644C20721AEE009907AE /* CelestialObjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelestialObjectCell.swift; sourceTree = "<group>"; };
 		FCB2BDBA1F2E6CED002288BE /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FCB2C1301F330133002288BE /* CityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
@@ -613,9 +605,7 @@
 				EFE8BF561DD86B2B000F0A79 /* Orbits */,
 				FC22B2AA1FF317EC002AE044 /* YinYang */,
 				FCFE7DF7202BBC7C00760633 /* GravitonTests */,
-				FC5616A21FE0F285005B5702 /* GravitonUITests */,
 				EFE8BF631DD86B2B000F0A79 /* OrbitsTests */,
-				FC22B2B71FF317EC002AE044 /* YinYangTests */,
 				EFC2C6951D88D02F0031AA9C /* Products */,
 				FC2435351E14C78C002AC626 /* Frameworks */,
 			);
@@ -888,15 +878,6 @@
 			path = YinYang;
 			sourceTree = "<group>";
 		};
-		FC22B2B71FF317EC002AE044 /* YinYangTests */ = {
-			isa = PBXGroup;
-			children = (
-				FC22B2B81FF317EC002AE044 /* YinYangTests.swift */,
-				FC22B2BA1FF317EC002AE044 /* Info.plist */,
-			);
-			path = YinYangTests;
-			sourceTree = "<group>";
-		};
 		FC2435351E14C78C002AC626 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,16 +903,6 @@
 				FC4D1E691FAFFAB700011478 /* ObserveTarget.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FC5616A21FE0F285005B5702 /* GravitonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FC5616A31FE0F285005B5702 /* GravitonUITests.swift */,
-				FCAA12611FE30F81008FCBC7 /* SnapshotHelper.swift */,
-				FC5616A51FE0F285005B5702 /* Info.plist */,
-			);
-			path = GravitonUITests;
 			sourceTree = "<group>";
 		};
 		FC6913851EC14D9300F9B3B5 /* Nodes */ = {
@@ -1779,7 +1750,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC22B2B91FF317EC002AE044 /* YinYangTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1787,8 +1757,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC5616A41FE0F285005B5702 /* GravitonUITests.swift in Sources */,
-				FCAA12621FE30F81008FCBC7 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
