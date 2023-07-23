@@ -64,7 +64,6 @@ extension String {
             let nsString = self as NSString
             return regex.numberOfMatches(in: self, options: [], range: NSRange(location: 0, length: nsString.length)) >= 1
         } catch let error {
-            logger.error("invalid regex: \(error.localizedDescription)")
             return false
         }
     }
@@ -86,7 +85,6 @@ extension String {
                 }
             }
         } catch let error {
-            logger.error("invalid regex: \(error.localizedDescription)")
             return []
         }
     }

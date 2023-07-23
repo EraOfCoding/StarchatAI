@@ -58,9 +58,7 @@ extension CelestialBodyObserverInfo: ObserverLoadable {
             try realm.write {
                 realm.delete(results)
             }
-            logger.info("\(results.count) outdated CelestialBodyObserverInfo objects cleared. Criteria: JD < \(julianDay.value - days)")
         } catch {
-            logger.warning("Failed to clear outdated CelestialBodyObserverInfo objects. Criteria: JD < \(julianDay.value - days). Failure reason: \(error)")
         }
     }
 }

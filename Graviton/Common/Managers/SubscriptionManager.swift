@@ -96,7 +96,6 @@ class SubscriptionManager<T> {
             break
         }
         if changed {
-            logger.info("update ephemeris for \(subscriptionId.uuidString)")
             DispatchQueue.main.async {
                 sub.didUpdate?(eph)
             }

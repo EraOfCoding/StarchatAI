@@ -83,9 +83,7 @@ extension RiseTransitSetElevation: ObserverLoadable {
             try realm.write {
                 realm.delete(results)
             }
-            logger.info("\(results.count) outdated RiseTransitSetInfo objects cleared. Criteria: JD < \(julianDay.value - days)")
         } catch {
-            logger.warning("Failed to clear outdated RiseTransitSetInfo objects. Criteria: JD < \(julianDay.value - days). Failure reason: \(error)")
         }
     }
 }

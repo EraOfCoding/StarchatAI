@@ -64,11 +64,10 @@ class MotionManager: NSObject {
                     if error == CMErrorTrueNorthNotAvailable {
                         // ignore
                     } else {
-                        logger.error("motion manager failed due to unhandled error \(error)")
+                        
                     }
                     return
                 } else if let error = error {
-                    logger.error(error)
                     return
                 }
                 if let motion = motion {
@@ -79,14 +78,12 @@ class MotionManager: NSObject {
                     }
                 }
             }
-            logger.info("Device motion update started")
         }
     }
 
     func stopMotionUpdate() {
         if motionManager.isDeviceMotionActive {
             motionManager.stopDeviceMotionUpdates()
-            logger.info("Device motion update stopped")
         }
     }
 

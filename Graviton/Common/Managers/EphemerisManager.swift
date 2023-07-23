@@ -17,17 +17,8 @@ final class EphemerisManager: SubscriptionManager<Ephemeris> {
 
     private static let expirationDuration: Double = 365.4215 * 86400
 
-    private override init() {
-        super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(resetToNormalEphemeris), name: Notification.Name(rawValue: "warpReset"), object: nil)
-    }
-
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-
-    @objc func resetToNormalEphemeris() {
-        logger.info("Reset to normal ephemeris")
     }
 
     func content(for subscription: SubscriptionUUID) -> Ephemeris? {
@@ -55,9 +46,6 @@ final class EphemerisManager: SubscriptionManager<Ephemeris> {
             defer {
                 self.isFetching = false
             }
-            if let errors = errors {
-                logger.error(errors)
-            }
         })
     }
 
@@ -80,7 +68,6 @@ final class EphemerisManager: SubscriptionManager<Ephemeris> {
     override func update(subscription: SubscriptionManager<Ephemeris>.Subscription, forJulianDay requestedJd: JulianDay) {
         if let eph = content(for: subscription.identifier) {
             if let refTime = eph.referenceTimestamp, let reqTime = eph.timestamp, abs(refTime - reqTime) > EphemerisManager.expirationDuration, Timekeeper.default.isWarping == false {
-                logger.info("Ephemeris data outdated. Refetching...")
                 fetch(forJulianDay: requestedJd)
             }
             eph.updateMotion(using: requestedJd)

@@ -47,7 +47,6 @@ class LocationManager: LiteSubscriptionManager<CLLocation>, CLLocationManagerDel
             if let pm = placemarks?.first {
                 timeZone = pm.timeZone ?? TimeZone.current
             } else {
-                logger.error("Cannot fetch time zone for \(location). \(String(describing: error))")
                 timeZone = TimeZone.current
             }
             completion(timeZone)
@@ -84,14 +83,12 @@ class LocationManager: LiteSubscriptionManager<CLLocation>, CLLocationManagerDel
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last!
         guard locationOverride == nil else {
-            logger.warning("location updated to \(location) but has been overridden with \(locationOverride!)")
             return
         }
-        logger.info("update location to \(location)")
         updateAllSubscribers(location)
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        logger.error(error)
+        
     }
 }

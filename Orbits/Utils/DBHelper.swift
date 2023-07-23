@@ -41,7 +41,6 @@ class DBHelper {
             .documentDirectory, .userDomainMask, true
             ).first!
 
-        logger.verbose(path)
         let cb = try! Connection("\(path)/celestialBodies.sqlite3")
         let ob = try! Connection("\(path)/motions.sqlite3")
         let helper = DBHelper(celestialBodies: cb, orbitalMotions: ob)

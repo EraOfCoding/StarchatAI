@@ -280,7 +280,6 @@ class ObserverViewController: SceneController {
     @objc func toggleTimeWarp(sender _: UIBarButtonItem) {
         guard Settings.default[.enableTimeWarp] else { return }
         Timekeeper.default.isWarpActive = !Timekeeper.default.isWarpActive
-        logger.verbose("Time warp toggled \(Timekeeper.default.isWarpActive)")
         updateTimeLabel()
     }
 

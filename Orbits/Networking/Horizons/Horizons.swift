@@ -103,13 +103,11 @@ public class Horizons {
                 let utf8String = String(data: d, encoding: .utf8)!
                 switch ResponseValidator.default.parse(content: utf8String) {
                 case .busy:
-                    logger.verbose("busy: \(url)")
+                    break
                 default:
                     rawData[url.naifId!] = utf8String
-                    logger.verbose("complete: \(url) - \(d)")
                 }
             } else {
-                logger.verbose("reponse has no data: \(String(describing: response))")
             }
         }
 
@@ -183,23 +181,18 @@ public class Horizons {
                 let utf8String = String(data: d, encoding: .utf8)!
                 switch ResponseValidator.default.parse(content: utf8String) {
                 case .busy:
-                    logger.verbose("busy: \(url), retrying")
                     let retried = retry(url: url)
                     if retried == false {
                         // retries run out
-                        logger.verbose("stop retrying: \(url)")
                     }
                 default:
                     if let naifId = url.naifId {
                         rawData[naifId] = utf8String
-                        logger.verbose("complete: \(url) - \(d)")
                     } else {
-                        logger.error("error finding which naif id the query corresponds to")
                         errors.append(NetworkRequestError.wrongPageError)
                     }
                 }
             } else {
-                logger.verbose("reponse has no data: \(String(describing: response))")
             }
         }
         let tasks = queries.compactMap { (query) -> URLSessionTask? in
@@ -219,11 +212,9 @@ public class Horizons {
                 rawData.removeAll()
             }
             guard errors.isEmpty else {
-                logger.error("complete with failure: fetching celestial bodies")
                 complete([:], errors)
                 return
             }
-            logger.info("complete: fetching celestial bodies")
             complete(rawData, nil)
         }
     }
@@ -292,7 +283,6 @@ public class Horizons {
             if let pm = placemarks?.first {
                 timeZone = pm.timeZone ?? TimeZone.current
             } else {
-                logger.error("Cannot fetch time zone for \(location). \(String(describing: error))")
                 timeZone = TimeZone.current
             }
             completion(timeZone)
@@ -342,7 +332,6 @@ public class Horizons {
 
     public func fetchRiseTransitSetElevation(preferredDate: Date = Date(), observerSite site: ObserverSite, naifs: [Naif] = Horizons.observerDefaultNaifs, mode: FetchMode = .preferLocal, update: (([Naif: RiseTransitSetElevation]) -> Void)? = nil, complete: (([Naif: RiseTransitSetElevation], [Error]?) -> Void)? = nil) {
         decodeTimeZone(location: site.location) { [weak self] (timeZone) in
-            logger.info("Requesting RTS info for \(site) within time zone \(timeZone)")
             self!.fetchObserverInfo(preferredDate: preferredDate, observerSite: site, timeZone: timeZone, naifs: naifs, mode: mode, queryMethod: HorizonsQuery.rtsQueries, parser: ObserverRiseTransitSetParser.default, update: update, complete: complete)
         }
 

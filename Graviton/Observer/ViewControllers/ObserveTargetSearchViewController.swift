@@ -100,9 +100,6 @@ class ObserveTargetSearchViewController: BaseTableViewController {
             cell.detailTextLabel?.text = star.identity.constellation.name
             let suffix = String(data: star.identity.constellation.name.lowercased().replacingOccurrences(of: " ", with: "_").data(using: .ascii, allowLossyConversion: true)!, encoding: .ascii)!
             cell.imageView?.image = UIImage(named: "icon_constellation_\(suffix)")
-            if cell.imageView?.image == nil {
-                logger.error("cannot find icon_constellation_\(suffix)")
-            }
             cell.imageView?.contentMode = .scaleAspectFit
         case let .nearbyBody(body):
             cell.textLabel?.text = body.name

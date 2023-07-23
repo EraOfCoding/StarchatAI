@@ -266,7 +266,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
                 return
             }
             guard let obInfo = ObserverLocationTimeManager.default.observerInfo else {
-                logger.error("Missing observer info")
                 return
             }
             self?.cameraNode.orientation = SCNQuaternion(Quaternion(alignVector: Vector3(1, 0, 0), with: Vector3(equatorialCoordinate: EquatorialCoordinate(horizontalCoordinate: coordinate, observerInfo: obInfo))))
@@ -317,7 +316,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
 
     func focus(atStar star: Star) {
         guard let node = rootNode.childNode(withName: String(star.identity.id), recursively: true) else {
-            logger.warning("Cannot focus on star \(star.identity) because it is not rendered")
             return
         }
         focus(atNode: node)
@@ -344,7 +342,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
         if observerInfo[.moon(.luna)] != nil {
             updateMoonOrientation()
         }
-        logger.verbose(observerInfo)
     }
 
     private func updateMoonOrientation() {
@@ -369,7 +366,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
 
     func updateLocation(location _: CLLocation) {
         guard let observerInfo = ObserverLocationTimeManager.default.observerInfo else {
-            logger.debug("observer info not ready")
             return
         }
         updateStellarContent(observerInfo: observerInfo)
@@ -385,7 +381,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
     func updateStellarContent(observerInfo: ObserverLocationTime) {
         let transform = observerInfo.localViewTransform
         let orientation = Quaternion(rotationMatrix: transform)
-        logger.debug("update orientation \(orientation)")
         panoramaNode.orientation = SCNQuaternion(orientation)
         directionMarkers.observerLocationTime = observerInfo
         compassRoseNode.ecefToNedOrientation = orientation
@@ -397,7 +392,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
         if let eph = EphemerisManager.default.content(for: ephemerisSubscriptionIdentifier) {
             ephemerisDidUpdate(ephemeris: eph)
         }
-        logger.debug("update location & time to \(observerInfo)")
     }
 
     // MARK: - Ephemeris Update
@@ -412,11 +406,6 @@ class ObserverScene: SCNScene, CameraResponsive, FocusingSupport {
     /// - Parameter ephemeris: Ephemeris to be recalculated
     private func ephemerisDidUpdate(ephemeris: Ephemeris) {
         let logMessage = "update ephemeris at \(String(describing: ephemeris.timestamp)) using data at \(String(describing: ephemeris.referenceTimestamp))"
-        if Timekeeper.default.isWarpActive {
-            logger.debug(logMessage)
-        } else {
-            logger.info(logMessage)
-        }
         let earth = ephemeris[399]!
         let cbLabelNode = rootNode.childNode(withName: "celestialBodyAnnotations", recursively: false) ?? {
             let node = SCNNode()
@@ -646,7 +635,6 @@ private extension ObserverScene {
             color = nil
         }
         guard let finalColor = color else {
-            logger.warning("attempt to show orbit line for unregistered celestial body \(celestialBody.naif) - showing nothing")
             return
         }
         orbitLineNode = OrbitLineNode(celestialBody: celestialBody, origin: earth, ephemeris: ephemeris, color: finalColor, rawToModelCoordinateTransform: { $0.normalized() * auxillaryLineLayerRadius })

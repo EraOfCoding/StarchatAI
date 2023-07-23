@@ -65,7 +65,6 @@ public final class EphemerisMotionParser: CommonParser, Parser {
             let motion = OrbitalMotionMoment(orbit: orbit, gm: gm, julianDay: JulianDay(jd), timeOfPeriapsisPassage: JulianDay(tp))
             if save {
                 motion.save(forBodyId: naifId)
-                logger.info("motion of \(naifId) @ epoch \(jd) (\(components[1])) saved")
             }
             return motion
         }
