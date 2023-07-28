@@ -37,6 +37,7 @@
 		879B8B072A5418CC00847086 /* ObserverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */; };
 		879B8B092A5536EB00847086 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B082A5536EB00847086 /* ChatView.swift */; };
 		879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B0A2A5538D800847086 /* ChatHostingController .swift */; };
+		87D779772A73865200B38673 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D779762A73865200B38673 /* Extensions.swift */; };
 		87EF91072A55DC3400275E9C /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EF91062A55DC3400275E9C /* KeyboardManager.swift */; };
 		EF2A67941EF9D0C700C95AC3 /* Kepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67931EF9D0C700C95AC3 /* Kepler.swift */; };
 		EF2A67961EFA09AE00C95AC3 /* CompassRoseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */; };
@@ -287,6 +288,7 @@
 		879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverDetailViewController.swift; sourceTree = "<group>"; };
 		879B8B082A5536EB00847086 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		879B8B0A2A5538D800847086 /* ChatHostingController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatHostingController .swift"; sourceTree = "<group>"; };
+		87D779762A73865200B38673 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		87EF91062A55DC3400275E9C /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		EF2A67931EF9D0C700C95AC3 /* Kepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kepler.swift; sourceTree = "<group>"; };
 		EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassRoseNode.swift; sourceTree = "<group>"; };
@@ -1126,6 +1128,7 @@
 				FC38ED1C1F417A9C00E9EEC9 /* Assertions.swift */,
 				FCE9DB851F8F504E008631DC /* Device.swift */,
 				FC7088231FEB4AFD00A1048F /* OccationalPrompt.swift */,
+				87D779762A73865200B38673 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1514,6 +1517,7 @@
 				FC959E6C1E9B50CE0026B222 /* SphereInteriorNode.swift in Sources */,
 				FC959E751E9B51700026B222 /* SolarSystemOverlayScene.swift in Sources */,
 				FC18E1B61EF613E30061C2F6 /* ObserverOverlayScene.swift in Sources */,
+				87D779772A73865200B38673 /* Extensions.swift in Sources */,
 				FCC11FC21FD9403C00235BFF /* ObserverTitleOverlayView.swift in Sources */,
 				EF48518A1D91EB8D00737CE4 /* CelestialNode.swift in Sources */,
 				FCCB89561EEE043300F1539E /* MotionManager.swift in Sources */,

@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-struct ChatMessage: Identifiable {
+struct ChatMessage: Identifiable, Codable {
     let id = UUID()
     var content: String
     let isUser: Bool
@@ -31,7 +31,8 @@ class ChatViewModel: ObservableObject {
     var history: String = ""
     
     func sendMessage(with prompt: String, context: String, spaceObject: String) {
-            
+        var messages = getMessages(for: spaceObject)
+        
         let urlString = "https://nebula-qzob.onrender.com/chat/\(spaceObject)?context=\(context)&history=\(history.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         guard let url = URL(string: urlString) else {
             print("Invalid URL: \(urlString)")
@@ -66,7 +67,11 @@ class ChatViewModel: ObservableObject {
                         if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                             if let answer = responseDict["answer"] as? String {
                                 let chatMessage = ChatMessage(content: answer, isUser: false, isTyping: false)
-                                self.messages[self.messages.endIndex - 1] = chatMessage
+                                
+                                messages[messages.endIndex - 1] = chatMessage
+//                                UserDefaults.standard.setValue(data, forKey: String(describing: spaceObject))
+                                self.setMessages(for: String(describing: spaceObject), with: messages)
+                                
                                 self.history = "\(prompt) \n \(chatMessage.content)"
                             } else {
                                 print("Invalid JSON format: Missing 'answer' key")
@@ -78,7 +83,15 @@ class ChatViewModel: ObservableObject {
                         print("Error decoding response: \(error)")
                         let error = "Sorry, could you please rephrase the question. I am confused..."
                         let chatMessage = ChatMessage(content: error, isUser: false, isTyping: false)
-                        self.messages[self.messages.endIndex - 1] = chatMessage
+                        
+                        
+//                        data[data.endIndex - 1] = chatMessage
+                        messages[messages.endIndex - 1] = chatMessage
+//                        UserDefaults.standard.setValue(messages, forKey: String(describing: spaceObject))
+                        self.setMessages(for: String(describing: spaceObject), with: messages)
+                        
+//                        self.messages[self.messages.endIndex - 1] = chatMessage
+                        
                         self.history = "\(prompt) \n \(error) "
                     }
                 }
@@ -88,12 +101,32 @@ class ChatViewModel: ObservableObject {
         let userMessage = ChatMessage(content: prompt, isUser: true, isTyping: false)
         let typingMessage = ChatMessage(content: "Typing...", isUser: false, isTyping: true)
         
+        messages.append(userMessage)
+        messages.append(typingMessage)
+        
+//        UserDefaults.standard.setValue(messages, forKey: String(describing: spaceObject))
+        
+        self.setMessages(for: String(describing: spaceObject), with: messages)
+        
         // Update UI-related code
-        DispatchQueue.main.async {
-            self.messages.append(userMessage)
-            self.messages.append(typingMessage)
-        }
+//        DispatchQueue.main.async {
+//            self.messages.append(userMessage)
+//            self.messages.append(typingMessage)
+//        }
     }
+    
+    func getMessages(for spaceObject: String) -> [ChatMessage] {
+        guard let data = UserDefaults.standard.data(forKey: String(describing: spaceObject)) else { return [] }
+        return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? [ChatMessage] ?? []
+    }
+    
+    func setMessages(for spaceObject: String, with messages: [ChatMessage]) {
+        if let encoded = try? JSONEncoder().encode(messages) {
+            UserDefaults.standard.set(encoded, forKey: String(describing: spaceObject))
+        }
+
+    }
+    
 }
 
 extension View {
@@ -128,10 +161,23 @@ struct ChatView: View {
     
     @FocusState var focusedField: FocusedField?
     
+    func getMessages(for spaceObject: String) -> [ChatMessage] {
+        guard let data = UserDefaults.standard.data(forKey: String(describing: spaceObject)) else { return [] }
+        return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? [ChatMessage] ?? []
+    }
+    
+    func setMessages(for spaceObject: String, with messages: ChatMessage) {
+        if let encoded = try? JSONEncoder().encode(messages) {
+            UserDefaults.standard.set(encoded, forKey: String(describing: spaceObject))
+        }
+
+    }
     
     var body: some View {
+        var messages = getMessages(for: spaceObject)
+        
         VStack {
-            MessageScrollView(viewModel: viewModel, keyboardManager: keyboardManager)
+            MessageScrollView(spaceObject: spaceObject, viewModel: viewModel, keyboardManager: keyboardManager)
             HStack {
                 Button(action: {
                     promptInput = randomPrompts.randomElement() ?? "HI"
@@ -166,7 +212,7 @@ struct ChatView: View {
                             }
                     }
                     Button(action: {
-                        if viewModel.messages.count < 1 || viewModel.messages[viewModel.messages.endIndex - 1].content != "Typing..."{
+                        if messages.count < 1 || messages[messages.endIndex - 1].content != "Typing..."{
                             if !promptInput.isEmpty {
                                 viewModel.sendMessage(with: promptInput, context: context, spaceObject: spaceObject)
                                 promptInput = ""
@@ -191,16 +237,31 @@ struct ChatView: View {
 }
 
 struct MessageScrollView: View {
+    var spaceObject: String
     @ObservedObject var viewModel: ChatViewModel
     @ObservedObject var keyboardManager = KeyboardManager()
     
+    func getMessages(for spaceObject: String) -> [ChatMessage] {
+//        guard let data = UserDefaults.standard.data(forKey: String(describing: spaceObject)) else { return [] }
+//        let msgs = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? [ChatMessage]
+//        print(msgs)
+//        return msgs ?? []
+        
+        let array = UserDefaults.standard.object(forKey: String(describing: spaceObject)) as? [ChatMessage] ?? [ChatMessage]()
+        print(array)
+        return array
+    }
+    
     var body: some View {
+        
+        var messages = getMessages(for: spaceObject)
+        
         ScrollViewReader { scrollViewProxy in
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(viewModel.messages) { message in
+                    ForEach(messages) { message in
                         if message.isTyping {
-                            LoadingBubbleView(viewModel: viewModel)
+                            LoadingBubbleView(viewModel: viewModel, spaceObject: spaceObject)
                             
                         } else {
                             Text(message.content)
@@ -215,23 +276,23 @@ struct MessageScrollView: View {
                         }
                     }
                 }
-                .onChange(of: viewModel.messages.count > 0 ? viewModel.messages[viewModel.messages.endIndex - 1].content.count : 1) { _ in
+                .onChange(of: messages.count > 0 ? messages[messages.endIndex - 1].content.count : 1) { _ in
                     withAnimation {
-                        scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
+                        scrollViewProxy.scrollTo(messages.last?.id, anchor: .bottom)
                         
                     }
                 
                 }
                 .onChange(of: keyboardManager.isVisible) { _ in
                     withAnimation {
-                        scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
+                        scrollViewProxy.scrollTo(messages.last?.id, anchor: .bottom)
                     }
                 }
                 
             }
-            .onChange(of: viewModel.messages.count) { _ in
+            .onChange(of: messages.count) { _ in
                 withAnimation {
-                    scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
+                    scrollViewProxy.scrollTo(messages.last?.id, anchor: .bottom)
                 }
             }
             .onTapGesture(count: 1) {
@@ -244,6 +305,7 @@ struct MessageScrollView: View {
 
 struct LoadingBubbleView: View {
     @ObservedObject var viewModel: ChatViewModel
+    var spaceObject: String
     
     @State private var dotScale: CGFloat = 0.1
     @State private var dotOpacity: Double = 0.0
@@ -252,7 +314,13 @@ struct LoadingBubbleView: View {
     private let dotSpacing: CGFloat = 1.0
     private let animationDuration: TimeInterval = 0.8
     
+    func getMessages(for spaceObject: String) -> [ChatMessage] {
+        guard let data = UserDefaults.standard.data(forKey: String(describing: spaceObject)) else { return [] }
+        return (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)) as? [ChatMessage] ?? []
+    }
+    
     var body: some View {
+        var messages = getMessages(for: spaceObject)
         HStack(spacing: dotSpacing) {
             ForEach(0..<3) { index in
                 Circle()
@@ -278,7 +346,7 @@ struct LoadingBubbleView: View {
         .cornerRadius(10)
         .padding(5)
         .frame(alignment: .leading)
-        .id(viewModel.messages[viewModel.messages.endIndex - 1].id)
+        .id(messages[messages.endIndex - 1].id)
     }
     
     private func startAnimating() {
