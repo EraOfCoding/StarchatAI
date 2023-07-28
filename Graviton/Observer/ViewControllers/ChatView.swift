@@ -31,6 +31,7 @@ class ChatViewModel: ObservableObject {
     var history: String = ""
     
     func sendMessage(with prompt: String, context: String, spaceObject: String) {
+            
         let urlString = "https://nebula-qzob.onrender.com/chat/\(spaceObject)?context=\(context)&history=\(history.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         guard let url = URL(string: urlString) else {
             print("Invalid URL: \(urlString)")
@@ -110,9 +111,9 @@ extension View {
 
 
 struct ChatView: View {
+    
     @ObservedObject var viewModel: ChatViewModel
     @ObservedObject var keyboardManager = KeyboardManager()
-    
     let spaceObject: String
     let context: String
     let randomPrompts = ["Hi! Tell me the story of your creation!", "What is your radius", "What would your g value be if your radius was twice as small?", "What does your name mean?", "What are some astronomical events occurring soon?", "How does the universe expansion affect you?", "Top 5 facts about you.", "What is your age?", "How AI could revolutionize the space exploration.", "What are some astronomical news recently?"]
@@ -120,6 +121,12 @@ struct ChatView: View {
     @State private var promptInput = ""
     
     @State private var glowRadius = 10.0
+    
+    enum FocusedField {
+        case promptInput
+    }
+    
+    @FocusState var focusedField: FocusedField?
     
     
     var body: some View {
@@ -133,6 +140,7 @@ struct ChatView: View {
                     Image("generate prompt")
                         .resizable()
                         .frame(width: 17, height: 17)
+                        .padding(.trailing, 17)
                 }
                 .padding(.leading, 10)
                 TextField("", text: $promptInput)
@@ -147,21 +155,25 @@ struct ChatView: View {
                     )
                     .padding(1)
                     .foregroundColor(.white)
+                    .focused($focusedField, equals: .promptInput)
                     .placeholder(when: promptInput.isEmpty) {
                         Text("Message...")
                             .foregroundColor(.white.opacity(0.3))
                             .zIndex(3)
                             .padding(.leading, 10)
+                            .onTapGesture {
+                                focusedField = .promptInput
+                            }
                     }
-                Button(action: {
-                    if viewModel.messages.count < 1 || viewModel.messages[viewModel.messages.endIndex - 1].content != "Typing..."{
-                        if !promptInput.isEmpty {
-                            viewModel.sendMessage(with: promptInput, context: context, spaceObject: spaceObject)
-                            promptInput = ""
+                    Button(action: {
+                        if viewModel.messages.count < 1 || viewModel.messages[viewModel.messages.endIndex - 1].content != "Typing..."{
+                            if !promptInput.isEmpty {
+                                viewModel.sendMessage(with: promptInput, context: context, spaceObject: spaceObject)
+                                promptInput = ""
+                            }
+                            
                         }
-                        
                     }
-                }
                 ) {
                     Text("Send")
                 }
