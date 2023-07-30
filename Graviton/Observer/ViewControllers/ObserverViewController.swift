@@ -221,13 +221,21 @@ class ObserverViewController: SceneController {
     }
 
     // MARK: - Button handling
-
+   
 //    @objc func menuButtonTapped(sender _: UIButton) {
-//        let menuController = ObserverMenuController(style: .plain)
-//        menuController.menu = Menu.main
-//        let navigationController = UINavigationController(rootViewController: menuController)
-//        navigationController.modalPresentationStyle = .overCurrentContext
-//        navigationController.delegate = self
+//        let infoView = InfoView(target: target, ephemerisId: ephemerisSubscriptionIdentifier, context: context.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "You%20are%20a%20space%20object")
+//
+//        let infoController = InfoHostingController(rootView: infoView)
+//
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissInfoController))
+//
+//        infoController.navigationItem.rightBarButtonItem = doneButton
+//        infoController.navigationItem.title = String(describing: target!)
+//
+//        let navigationController = UINavigationController(rootViewController: infoController)
+//        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        navigationController.modalPresentationStyle = .fullScreen
+//
 //        tabBarController?.present(navigationController, animated: true, completion: nil)
 //    }
 

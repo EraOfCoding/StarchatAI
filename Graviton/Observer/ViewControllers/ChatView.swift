@@ -8,15 +8,17 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct ChatMessage: Identifiable {
     let id = UUID()
     var content: String
     let isUser: Bool
     let isTyping: Bool
+    let date = Date()
 }
 
-struct ChatResponse: Decodable {
+struct ChatRersponse: Decodable {
     let answer: String
     
     private enum CodingKeys: String, CodingKey {
@@ -27,6 +29,8 @@ struct ChatResponse: Decodable {
 
 class ChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = []
+    @Environment(\.managedObjectContext) var moc
+
     
     var history: String = ""
     
@@ -57,23 +61,23 @@ class ChatViewModel: ObservableObject {
                 
                 if let data = data {
                     do {
-                        if let responseString = String(data: data, encoding: .utf8) {
-                            print("Response: \(responseString)")
-                        }
-                        
-                        let decoder = JSONDecoder()
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            if let answer = responseDict["answer"] as? String {
-                                let chatMessage = ChatMessage(content: answer, isUser: false, isTyping: false)
-                                self.messages[self.messages.endIndex - 1] = chatMessage
-                                self.history = "\(prompt) \n \(chatMessage.content)"
-                            } else {
-                                print("Invalid JSON format: Missing 'answer' key")
-                            }
+                    if let responseString = String(data: data, encoding: .utf8) {
+                        print("Response: \(responseString)")
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let answer = responseDict["answer"] as? String {
+                            let chatMessage = ChatMessage(content: answer, isUser: false, isTyping: false)
+                            self.messages[self.messages.endIndex - 1] = chatMessage
+                            self.history = "\(prompt) \n \(chatMessage.content)"
                         } else {
-                            print("Invalid JSON format: Unable to parse response as dictionary")
+                            print("Invalid JSON format: Missing 'answer' key")
                         }
+                    } else {
+                        print("Invalid JSON format: Unable to parse response as dictionary")
+                    }
                     } catch {
                         print("Error decoding response: \(error)")
                         let error = "Sorry, could you please rephrase the question. I am confused..."
@@ -92,6 +96,8 @@ class ChatViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.messages.append(userMessage)
             self.messages.append(typingMessage)
+            
+
         }
     }
 }
@@ -111,7 +117,7 @@ extension View {
 
 
 struct ChatView: View {
-    
+    @Environment(\.managedObjectContext) var moc
     @ObservedObject var viewModel: ChatViewModel
     @ObservedObject var keyboardManager = KeyboardManager()
     let spaceObject: String
@@ -131,7 +137,7 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
-            MessageScrollView(viewModel: viewModel, keyboardManager: keyboardManager)
+            MessageScrollView(viewModel: viewModel, keyboardManager: keyboardManager, spaceObject: spaceObject)
             HStack {
                 Button(action: {
                     promptInput = randomPrompts.randomElement() ?? "HI"
@@ -140,7 +146,7 @@ struct ChatView: View {
                     Image("generate prompt")
                         .resizable()
                         .frame(width: 17, height: 17)
-                        .padding(.trailing, 17)
+                        .padding(.trailing, 10)
                 }
                 .padding(.leading, 10)
                 TextField("", text: $promptInput)
@@ -165,15 +171,35 @@ struct ChatView: View {
                                 focusedField = .promptInput
                             }
                     }
-                    Button(action: {
-                        if viewModel.messages.count < 1 || viewModel.messages[viewModel.messages.endIndex - 1].content != "Typing..."{
-                            if !promptInput.isEmpty {
-                                viewModel.sendMessage(with: promptInput, context: context, spaceObject: spaceObject)
-                                promptInput = ""
-                            }
+                Button(action: {
+                    if viewModel.messages.count < 1 || viewModel.messages[viewModel.messages.endIndex - 1].content != "Typing..."{
+                        if !promptInput.isEmpty {
+                            viewModel.sendMessage(with: promptInput, context: context, spaceObject: spaceObject)
+                            let chat = Chat(context: moc)
+                            chat.content = promptInput
+                            chat.isTyping = false
+                            chat.id = UUID()
+                            chat.isUser = true
+                            chat.date = Date()
+                            chat.spaceObject = spaceObject
+                            
+                            try? moc.save()
+                            
+                            promptInput = ""
+                            
+                            let typing = Chat(context: moc)
+                            typing.content = "Typing..."
+                            typing.isTyping = true
+                            typing.id = UUID()
+                            typing.isUser = false
+                            typing.date = Date()
+                            typing.spaceObject = spaceObject
+                            
+                            try? moc.save()
                             
                         }
                     }
+                }
                 ) {
                     Text("Send")
                 }
@@ -184,35 +210,87 @@ struct ChatView: View {
             .padding(.bottom, 9)
             .padding(.top, 3)
             .background(Color(red: 28 / 255, green: 28 / 255, blue: 28 / 255))
-            
+            .onChange(of: viewModel.messages.count > 0 ? viewModel.messages[viewModel.messages.endIndex - 1].isTyping : true) {typing in
+                let lastIndex = viewModel.messages.endIndex - 1
+                if !viewModel.messages[lastIndex].isTyping {
+                    print("IT WORKS!!!")
+                    changeLastElementOfCoreData(answer: viewModel.messages[lastIndex].content)
+                }
+            }
         }
+        
         .preferredColorScheme(.dark)
+        
+    }
+    
+    private func changeLastElementOfCoreData(answer: String) {
+        let fetchRequest: NSFetchRequest<Chat> = Chat.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Chat.date, ascending: true)] // Change "timestamp" to your sorting key
+
+        do {
+            // Fetch the entities from Core Data
+            let entities = try moc.fetch(fetchRequest)
+
+            // Check if there are any elements in the array
+            guard entities.count > 0 else {
+                print("No elements found in Core Data.")
+                return
+            }
+
+            // Get the last element
+            let lastEntity = entities.last!
+
+            // Perform the desired change on the last element
+            // For example, if "YourAttribute" is an attribute of the entity, and you want to change it:
+            lastEntity.content = answer
+            lastEntity.isTyping = false
+            lastEntity.isUser = false
+
+            // Save the context to persist the changes
+            try moc.save()
+            print("Last element in Core Data has been updated.")
+        } catch let error as NSError {
+            print("Error fetching or updating Core Data: \(error), \(error.userInfo)")
+        }
     }
 }
 
+func RemoveLinkMarks(content: String) -> String {
+    let parsed = content.replacingOccurrences(of: "![", with: "[")
+    
+    return parsed
+}
+
 struct MessageScrollView: View {
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.date)
+    ]) var chat: FetchedResults<Chat>
     @ObservedObject var viewModel: ChatViewModel
     @ObservedObject var keyboardManager = KeyboardManager()
+    let spaceObject: String
     
     var body: some View {
         ScrollViewReader { scrollViewProxy in
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(viewModel.messages) { message in
-                        if message.isTyping {
-                            LoadingBubbleView(viewModel: viewModel)
-                            
-                        } else {
-                            Text(message.content)
-                                .padding(10)
-                                .background(message.isUser ? Color.blue : Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .padding(5)
-                                .frame(maxWidth: .infinity, alignment: message.isUser ? .trailing : .leading)
-                                .font(.system(size: 17))
-                                .id(message.id)
+                    ForEach(chat) { message in
+                        if message.spaceObject == spaceObject {
+                            if message.isTyping {
+                                LoadingBubbleView(viewModel: viewModel)
+                                
+                            } else {
+                                Text(LocalizedStringKey(RemoveLinkMarks(content: message.content ?? "")))
+                                    .padding(10)
+                                    .background(message.isUser ? Color.blue : Color(red: 70 / 255, green: 70 / 255, blue: 70 / 255))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                                    .padding(5)
+                                    .frame(maxWidth: .infinity, alignment: message.isUser ? .trailing : .leading)
+                                    .font(.system(size: 17))
+                                    .id(message.id)
+                            }
                         }
+                        
                     }
                 }
                 .onChange(of: viewModel.messages.count > 0 ? viewModel.messages[viewModel.messages.endIndex - 1].content.count : 1) { _ in
@@ -278,7 +356,6 @@ struct LoadingBubbleView: View {
         .cornerRadius(10)
         .padding(5)
         .frame(alignment: .leading)
-        .id(viewModel.messages[viewModel.messages.endIndex - 1].id)
     }
     
     private func startAnimating() {

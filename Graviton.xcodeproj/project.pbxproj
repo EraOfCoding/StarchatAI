@@ -23,6 +23,7 @@
 		0FBEA6802A048B5C00E4E34B /* SpaceTime in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA67F2A048B5C00E4E34B /* SpaceTime */; };
 		0FBEA6832A048CF100E4E34B /* XLPagerTabStrip in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6822A048CF100E4E34B /* XLPagerTabStrip */; };
 		0FBEA6852A048D0800E4E34B /* SpaceTime in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6842A048D0800E4E34B /* SpaceTime */; };
+		870895952A73CCCD009A6E96 /* ChatModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 870895932A73CCCD009A6E96 /* ChatModel.xcdatamodeld */; };
 		872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 872EA23C2A5D17B200AC2280 /* SnapKit */; };
 		877C8AEC2A57F84E00686838 /* InfoHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AEB2A57F84E00686838 /* InfoHostingController.swift */; };
 		877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AED2A57F87A00686838 /* InfoView .swift */; };
@@ -37,6 +38,7 @@
 		879B8B072A5418CC00847086 /* ObserverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */; };
 		879B8B092A5536EB00847086 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B082A5536EB00847086 /* ChatView.swift */; };
 		879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B0A2A5538D800847086 /* ChatHostingController .swift */; };
+		87E377592A768ACB0015FD1E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E377582A768ACB0015FD1E /* Persistence.swift */; };
 		87EF91072A55DC3400275E9C /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EF91062A55DC3400275E9C /* KeyboardManager.swift */; };
 		EF2A67941EF9D0C700C95AC3 /* Kepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67931EF9D0C700C95AC3 /* Kepler.swift */; };
 		EF2A67961EFA09AE00C95AC3 /* CompassRoseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */; };
@@ -274,6 +276,7 @@
 		0F37D44E2A0496F80053422A /* KelvinColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KelvinColor.h; sourceTree = "<group>"; };
 		0F37D44F2A0496F80053422A /* KelvinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KelvinColor.swift; sourceTree = "<group>"; };
 		0FBEA68D2A048ECB00E4E34B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		870895942A73CCCD009A6E96 /* ChatModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatModel.xcdatamodel; sourceTree = "<group>"; };
 		877C8AEB2A57F84E00686838 /* InfoHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHostingController.swift; sourceTree = "<group>"; };
 		877C8AED2A57F87A00686838 /* InfoView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoView .swift"; sourceTree = "<group>"; };
 		879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNavigationController.swift; sourceTree = "<group>"; };
@@ -287,6 +290,7 @@
 		879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverDetailViewController.swift; sourceTree = "<group>"; };
 		879B8B082A5536EB00847086 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		879B8B0A2A5538D800847086 /* ChatHostingController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatHostingController .swift"; sourceTree = "<group>"; };
+		87E377582A768ACB0015FD1E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		87EF91062A55DC3400275E9C /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		EF2A67931EF9D0C700C95AC3 /* Kepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kepler.swift; sourceTree = "<group>"; };
 		EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassRoseNode.swift; sourceTree = "<group>"; };
@@ -918,6 +922,7 @@
 			isa = PBXGroup;
 			children = (
 				879B8AFA2A5418CB00847086 /* BodyInfoViewController.swift */,
+				870895932A73CCCD009A6E96 /* ChatModel.xcdatamodeld */,
 				879B8AFE2A5418CC00847086 /* ObserverDetailViewController.swift */,
 				879B8AF72A5418CB00847086 /* ObserverLocationMenuController.swift */,
 				879B8AF92A5418CB00847086 /* ObserverMenuController.swift */,
@@ -931,6 +936,7 @@
 				879B8B0A2A5538D800847086 /* ChatHostingController .swift */,
 				877C8AEB2A57F84E00686838 /* InfoHostingController.swift */,
 				877C8AED2A57F87A00686838 /* InfoView .swift */,
+				87E377582A768ACB0015FD1E /* Persistence.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1506,6 +1512,7 @@
 				FC959E6D1E9B50CE0026B222 /* TrackingLabelNode.swift in Sources */,
 				FC1CC2D61EE016CC009FA252 /* UINavigationBar+Config.swift in Sources */,
 				EFC2C6981D88D02F0031AA9C /* AppDelegate.swift in Sources */,
+				87E377592A768ACB0015FD1E /* Persistence.swift in Sources */,
 				FCD62BDC1F7A2A8900F8CBA6 /* SolarSystemNavigationController.swift in Sources */,
 				FC6619AA1EF26CB900B670CC /* AttitudeStabilizer.swift in Sources */,
 				FCFBB7361E61945400624B4C /* MenuCell.swift in Sources */,
@@ -1526,6 +1533,7 @@
 				879B8AFF2A5418CC00847086 /* ObserverNavigationController.swift in Sources */,
 				FC4D1E731FC94E3A00011478 /* InformationViewController.swift in Sources */,
 				FCE9DB861F8F504E008631DC /* Device.swift in Sources */,
+				870895952A73CCCD009A6E96 /* ChatModel.xcdatamodeld in Sources */,
 				FC1CC2DB1EE0171F009FA252 /* CameraController.swift in Sources */,
 				FCFBB7441E61E6E600624B4C /* Menu.swift in Sources */,
 				FC4D1E6A1FAFFAB700011478 /* ObserveTarget.swift in Sources */,
@@ -2474,6 +2482,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		870895932A73CCCD009A6E96 /* ChatModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				870895942A73CCCD009A6E96 /* ChatModel.xcdatamodel */,
+			);
+			currentVersion = 870895942A73CCCD009A6E96 /* ChatModel.xcdatamodel */;
+			path = ChatModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFC2C68C1D88D02F0031AA9C /* Project object */;
 }

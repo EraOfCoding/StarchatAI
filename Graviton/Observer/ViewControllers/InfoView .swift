@@ -29,7 +29,10 @@ struct BodyInfoViewControllerWrapper: UIViewControllerRepresentable {
 
 
 struct InfoView: View {
+    @Environment(\.scenePhase) var scenePhase
     @State private var pageIndex = 0
+    
+    let persistenceController = PersistenceController.shared
     
     let target: ObserveTarget!
     let ephemerisId: SubscriptionUUID!
@@ -38,7 +41,6 @@ struct InfoView: View {
     
     
     var body: some View {
-        
         VStack {
             Picker(String(describing: target!), selection: $pageIndex) {
                 Text("Chat")
@@ -59,10 +61,15 @@ struct InfoView: View {
                     spaceObject: String(describing: target!).addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "saturn",
                     context: context
                 )
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                              
             }
             else {
                 BodyInfoViewControllerWrapper(target: target, ephemerisId: ephemerisId)
             }
+        }
+        .onChange(of: scenePhase) { _ in
+            persistenceController.save()
         }
     }
 }
