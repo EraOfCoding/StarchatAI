@@ -39,6 +39,8 @@
 		879B8B092A5536EB00847086 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B082A5536EB00847086 /* ChatView.swift */; };
 		879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8B0A2A5538D800847086 /* ChatHostingController .swift */; };
 		87E377592A768ACB0015FD1E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E377582A768ACB0015FD1E /* Persistence.swift */; };
+		87E3775B2A7690110015FD1E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E3775A2A7690110015FD1E /* HistoryViewController.swift */; };
+		87E3775D2A7690400015FD1E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E3775C2A7690400015FD1E /* HistoryView.swift */; };
 		87EF91072A55DC3400275E9C /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EF91062A55DC3400275E9C /* KeyboardManager.swift */; };
 		EF2A67941EF9D0C700C95AC3 /* Kepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67931EF9D0C700C95AC3 /* Kepler.swift */; };
 		EF2A67961EFA09AE00C95AC3 /* CompassRoseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */; };
@@ -291,6 +293,8 @@
 		879B8B082A5536EB00847086 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		879B8B0A2A5538D800847086 /* ChatHostingController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatHostingController .swift"; sourceTree = "<group>"; };
 		87E377582A768ACB0015FD1E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		87E3775A2A7690110015FD1E /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		87E3775C2A7690400015FD1E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		87EF91062A55DC3400275E9C /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		EF2A67931EF9D0C700C95AC3 /* Kepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kepler.swift; sourceTree = "<group>"; };
 		EF2A67951EFA09AE00C95AC3 /* CompassRoseNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassRoseNode.swift; sourceTree = "<group>"; };
@@ -935,7 +939,9 @@
 				87EF91062A55DC3400275E9C /* KeyboardManager.swift */,
 				879B8B0A2A5538D800847086 /* ChatHostingController .swift */,
 				877C8AEB2A57F84E00686838 /* InfoHostingController.swift */,
+				87E3775A2A7690110015FD1E /* HistoryViewController.swift */,
 				877C8AED2A57F87A00686838 /* InfoView .swift */,
+				87E3775C2A7690400015FD1E /* HistoryView.swift */,
 				87E377582A768ACB0015FD1E /* Persistence.swift */,
 			);
 			path = ViewControllers;
@@ -1509,6 +1515,7 @@
 				879B8B0B2A5538D800847086 /* ChatHostingController .swift in Sources */,
 				879B8B022A5418CC00847086 /* ObserverMenuController.swift in Sources */,
 				FC959E731E9B514C0026B222 /* SolarSystemViewController.swift in Sources */,
+				87E3775D2A7690400015FD1E /* HistoryView.swift in Sources */,
 				FC959E6D1E9B50CE0026B222 /* TrackingLabelNode.swift in Sources */,
 				FC1CC2D61EE016CC009FA252 /* UINavigationBar+Config.swift in Sources */,
 				EFC2C6981D88D02F0031AA9C /* AppDelegate.swift in Sources */,
@@ -1516,6 +1523,7 @@
 				FCD62BDC1F7A2A8900F8CBA6 /* SolarSystemNavigationController.swift in Sources */,
 				FC6619AA1EF26CB900B670CC /* AttitudeStabilizer.swift in Sources */,
 				FCFBB7361E61945400624B4C /* MenuCell.swift in Sources */,
+				87E3775B2A7690110015FD1E /* HistoryViewController.swift in Sources */,
 				EFA4F0731EAAB81A005D2E0D /* Functional.swift in Sources */,
 				FC172B261ED27BBA008BF615 /* BooleanFlaggedLight.swift in Sources */,
 				FC959E6C1E9B50CE0026B222 /* SphereInteriorNode.swift in Sources */,

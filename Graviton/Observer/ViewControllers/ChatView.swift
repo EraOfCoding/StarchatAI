@@ -119,10 +119,9 @@ extension View {
 struct ChatView: View {
     @Environment(\.managedObjectContext) var moc
     @ObservedObject var viewModel: ChatViewModel
-    @ObservedObject var keyboardManager = KeyboardManager()
     let spaceObject: String
     let context: String
-    let randomPrompts = ["Hi! Tell me the story of your creation!", "What is your radius", "What would your g value be if your radius was twice as small?", "What does your name mean?", "What are some astronomical events occurring soon?", "How does the universe expansion affect you?", "Top 5 facts about you.", "What is your age?", "How AI could revolutionize the space exploration.", "What are some astronomical news recently?"]
+    let randomPrompts = ["Hi! Tell me the story of your creation!", "What is your radius", "What does your name mean?", "What are some astronomical events occurring soon?", "How does the universe expansion affect you?", "Top 5 facts about you.", "What is your age?", "How AI could revolutionize the space exploration.", "What are some astronomical news recently?", "Send me a photo of you"]
     
     @State private var promptInput = ""
     
@@ -137,7 +136,7 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
-            MessageScrollView(viewModel: viewModel, keyboardManager: keyboardManager, spaceObject: spaceObject)
+            MessageScrollView(viewModel: viewModel, spaceObject: spaceObject)
             HStack {
                 Button(action: {
                     promptInput = randomPrompts.randomElement() ?? "HI"
@@ -266,7 +265,6 @@ struct MessageScrollView: View {
         SortDescriptor(\.date)
     ]) var chat: FetchedResults<Chat>
     @ObservedObject var viewModel: ChatViewModel
-    @ObservedObject var keyboardManager = KeyboardManager()
     let spaceObject: String
     
     var body: some View {
@@ -288,32 +286,27 @@ struct MessageScrollView: View {
                                     .frame(maxWidth: .infinity, alignment: message.isUser ? .trailing : .leading)
                                     .font(.system(size: 17))
                                     .id(message.id)
+                                
                             }
                         }
                         
                     }
                 }
-                .onChange(of: viewModel.messages.count > 0 ? viewModel.messages[viewModel.messages.endIndex - 1].content.count : 1) { _ in
+                .onChange(of: viewModel.messages.last?.content) { _ in
+                    print("Scroll to end!")
                     withAnimation {
-                        scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
-                        
-                    }
-                
-                }
-                .onChange(of: keyboardManager.isVisible) { _ in
-                    withAnimation {
-                        scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
+                        scrollViewProxy.scrollTo(chat.last?.id, anchor: .bottom)
                     }
                 }
-                
             }
             .onChange(of: viewModel.messages.count) { _ in
+                print("Scroll to end!")
                 withAnimation {
-                    scrollViewProxy.scrollTo(viewModel.messages.last?.id, anchor: .bottom)
+                    scrollViewProxy.scrollTo(chat.last?.id, anchor: .bottom)
                 }
             }
-            .onTapGesture(count: 1) {
-                keyboardManager.isVisible = false
+            .onAppear{
+                scrollViewProxy.scrollTo(chat.last?.id, anchor: .bottom)
             }
         }
     }
