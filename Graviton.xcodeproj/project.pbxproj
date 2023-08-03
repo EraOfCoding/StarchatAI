@@ -25,6 +25,8 @@
 		0FBEA6852A048D0800E4E34B /* SpaceTime in Frameworks */ = {isa = PBXBuildFile; productRef = 0FBEA6842A048D0800E4E34B /* SpaceTime */; };
 		870895952A73CCCD009A6E96 /* ChatModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 870895932A73CCCD009A6E96 /* ChatModel.xcdatamodeld */; };
 		872EA23D2A5D17B200AC2280 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 872EA23C2A5D17B200AC2280 /* SnapKit */; };
+		876C3B9F2A77C4AB00F57094 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C3B9E2A77C4AB00F57094 /* InitialVC.swift */; };
+		876C3BA12A77C69700F57094 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C3BA02A77C69700F57094 /* OnboardingVC.swift */; };
 		877C8AEC2A57F84E00686838 /* InfoHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AEB2A57F84E00686838 /* InfoHostingController.swift */; };
 		877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 877C8AED2A57F87A00686838 /* InfoView .swift */; };
 		879B8AFF2A5418CC00847086 /* ObserverNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */; };
@@ -279,6 +281,8 @@
 		0F37D44F2A0496F80053422A /* KelvinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KelvinColor.swift; sourceTree = "<group>"; };
 		0FBEA68D2A048ECB00E4E34B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		870895942A73CCCD009A6E96 /* ChatModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatModel.xcdatamodel; sourceTree = "<group>"; };
+		876C3B9E2A77C4AB00F57094 /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		876C3BA02A77C69700F57094 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		877C8AEB2A57F84E00686838 /* InfoHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHostingController.swift; sourceTree = "<group>"; };
 		877C8AED2A57F87A00686838 /* InfoView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoView .swift"; sourceTree = "<group>"; };
 		879B8AF62A5418CA00847086 /* ObserverNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNavigationController.swift; sourceTree = "<group>"; };
@@ -972,6 +976,8 @@
 				FCB2BDBA1F2E6CED002288BE /* TabBarController.swift */,
 				FC959E671E9B50340026B222 /* SceneController.swift */,
 				FC6B88561EEC9764007EFE2E /* BaseTableViewController.swift */,
+				876C3B9E2A77C4AB00F57094 /* InitialVC.swift */,
+				876C3BA02A77C69700F57094 /* OnboardingVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1548,6 +1554,7 @@
 				FC1CC2C81EE01646009FA252 /* LocationManager.swift in Sources */,
 				FCFF7B151EA2145A00C4B006 /* Settings.swift in Sources */,
 				FC7088241FEB4AFD00A1048F /* OccationalPrompt.swift in Sources */,
+				876C3B9F2A77C4AB00F57094 /* InitialVC.swift in Sources */,
 				FCE5B94A200A034F00B46B4B /* HeaderView.swift in Sources */,
 				FCFBB71F1E59FCF100624B4C /* WarpControl.swift in Sources */,
 				FC1CC2CA1EE01646009FA252 /* CelestialBodyObserverInfoManager.swift in Sources */,
@@ -1573,6 +1580,7 @@
 				FC959E7D1E9CB8060026B222 /* BooleanFlaggedNode.swift in Sources */,
 				FC099E451F1AD40D00A65F73 /* Formatters.swift in Sources */,
 				FC5616AE1FE122C8005B5702 /* RealmManager.swift in Sources */,
+				876C3BA12A77C69700F57094 /* OnboardingVC.swift in Sources */,
 				FCEC58291F8CA8E3008860BB /* UITableViewController+BlurredBackground.swift in Sources */,
 				FCBF424D1FA5764500AAD151 /* OrbitLineNode.swift in Sources */,
 				877C8AEE2A57F87A00686838 /* InfoView .swift in Sources */,
@@ -1909,7 +1917,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 589WRZ947H;
+				DEVELOPMENT_TEAM = Q6C24TAU3W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

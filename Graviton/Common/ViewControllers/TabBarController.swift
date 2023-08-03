@@ -11,10 +11,30 @@ import UIKit
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        Style.setTabBarTransparent(tabBar: tabBar)
-        if let navigationController = selectedViewController as? UINavigationController {
-            applyTabBarStyle(toViewController: navigationController.topViewController)
+        
+        if UserDefaults.standard.bool(forKey: "isFirstTime") == false {
+            UserDefaults.standard.set(false, forKey: "isFirstTime")
+            print("HEY")
+            delegate = self
+            Style.setTabBarTransparent(tabBar: tabBar)
+            if let navigationController = selectedViewController as? UINavigationController {
+                applyTabBarStyle(toViewController: navigationController.topViewController)
+            }
+        } else {
+            print("Standart")
+
+            let infoView = HistoryView()
+                    
+            let infoController = HistoryViewController(rootView: infoView)
+
+            infoController.navigationItem.title = String(describing: "Welcome!")
+
+            let navigationController = UINavigationController(rootViewController: infoController)
+            navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navigationController.modalPresentationStyle = .fullScreen
+
+            tabBarController?.present(navigationController, animated: true, completion: nil)
+
         }
     }
 

@@ -3,13 +3,50 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--InitialVC-->
+        <scene sceneID="Ayt-vN-z5j">
+            <objects>
+                <viewController id="20x-db-o2x" customClass="InitialVC" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UO0-Pa-PZW"/>
+                        <viewControllerLayoutGuide type="bottom" id="EtQ-DO-gp2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1zP-mS-C2s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx0-Qt-U9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2074" y="-378"/>
+        </scene>
+        <!--OnboardingVC-->
+        <scene sceneID="5tT-2c-xkP">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingVC" id="HNH-AI-t2O" customClass="OnboardingVC" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2IT-dv-Phw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ciM-Y7-fx4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Sa-1R-7JS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0g5-17-pBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-735" y="-833"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NYI-QS-2QJ">
             <objects>
-                <tabBarController id="MsG-vN-XK9" customClass="TabBarController" customModule="Graviton" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="MsG-vN-XK9" customClass="TabBarController" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vX5-Y4-Oja">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,7 +63,7 @@
         <!--Observer-->
         <scene sceneID="sZQ-sW-sFR">
             <objects>
-                <navigationController id="rbu-ZA-MSV" customClass="ObserverNavigationController" customModule="Graviton" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="rbu-ZA-MSV" customClass="ObserverNavigationController" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Observer" image="tab_icon_telescope" id="lhL-yf-1tS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nLf-ud-Qyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -43,7 +80,7 @@
         <!--Observer-->
         <scene sceneID="5OJ-qP-mpF">
             <objects>
-                <viewController id="Qj8-x5-LLh" customClass="ObserverViewController" customModule="Graviton" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qj8-x5-LLh" customClass="ObserverViewController" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
                     <sceneKitView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kuh-AI-0WQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,7 +97,7 @@
         <!--Observer Detail View Controller-->
         <scene sceneID="doI-7e-4C3">
             <objects>
-                <viewController storyboardIdentifier="ObserverDetailViewController" id="UNP-hw-hxR" customClass="ObserverDetailViewController" customModule="Graviton" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ObserverDetailViewController" id="UNP-hw-hxR" customClass="ObserverDetailViewController" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bww-ib-FOx"/>
                         <viewControllerLayoutGuide type="bottom" id="vV7-Wr-CKk"/>
@@ -92,7 +129,7 @@
         <!--Observer Detail Inner View Controller-->
         <scene sceneID="GqN-TR-3by">
             <objects>
-                <viewController id="8Sl-3S-nnx" customClass="ObserverDetailInnerViewController" customModule="Graviton" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8Sl-3S-nnx" customClass="ObserverDetailInnerViewController" customModule="Starchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bex-aw-U6m"/>
                         <viewControllerLayoutGuide type="bottom" id="ihb-f4-Ue0"/>
@@ -141,5 +178,8 @@
     </scenes>
     <resources>
         <image name="tab_icon_telescope" width="27" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

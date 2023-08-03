@@ -141,9 +141,9 @@ class ObserverViewController: SceneController {
         let gyroItem = UIBarButtonItem(image: #imageLiteral(resourceName: "row_icon_stabilize"), style: .plain, target: self, action: #selector(gyroButtonTapped(sender:)))
         navigationItem.leftBarButtonItem = gyroItem
         navigationItem.titleView = titleBlurView
-        let settingItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu_icon_settings"), style: .plain, target: self, action: #selector(menuButtonTapped(sender:)))
+//        let settingItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu_icon_settings"), style: .plain, target: self, action: #selector(menuButtonTapped(sender:)))
         let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped(sender:)))
-        navigationItem.rightBarButtonItems = [searchItem, settingItem]
+        navigationItem.rightBarButtonItems = [searchItem ]
 
         titleOverlayView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleOverlayView)
@@ -222,22 +222,22 @@ class ObserverViewController: SceneController {
 
     // MARK: - Button handling
    
-    @objc func menuButtonTapped(sender _: UIButton) {
-        let historyView = HistoryView()
-                
-        let historyController = HistoryViewController(rootView: historyView)
-
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissInfoController))
-
-        historyController.navigationItem.rightBarButtonItem = doneButton
-        historyController.navigationItem.title = "Chat History"
-
-        let navigationController = UINavigationController(rootViewController: historyController)
-        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController.modalPresentationStyle = .fullScreen
-
-        tabBarController?.present(navigationController, animated: true, completion: nil)
-    }
+//    @objc func menuButtonTapped(sender _: UIButton) {
+//        let historyView = HistoryView()
+//
+//        let historyController = HistoryViewController(rootView: historyView)
+//
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissInfoController))
+//
+//        historyController.navigationItem.rightBarButtonItem = doneButton
+//        historyController.navigationItem.title = "Chat History"
+//
+//        let navigationController = UINavigationController(rootViewController: historyController)
+//        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        navigationController.modalPresentationStyle = .fullScreen
+//
+//        tabBarController?.present(navigationController, animated: true, completion: nil)
+//    }
 
     @objc func gyroButtonTapped(sender _: UIBarButtonItem) {
         MotionManager.default.toggleMotionUpdate()

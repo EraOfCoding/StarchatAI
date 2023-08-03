@@ -62,7 +62,7 @@ struct InfoView: View {
                     context: context
                 )
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                              
+                
             }
             else {
                 BodyInfoViewControllerWrapper(target: target, ephemerisId: ephemerisId)

@@ -31,7 +31,7 @@ struct PersistenceController {
 
     // An initializer to load Core Data, optionally able
     // to use an in-memory store.
-    init(inMemory: Bool = false) {
+    init(inMemory: Bool = true) {
         // If you didn't name your model Main you'll need
         // to change this name below.
         container = NSPersistentContainer(name: "ChatModel")
@@ -58,4 +58,26 @@ struct PersistenceController {
             }
         }
     }
+    
+    func updateLastElement(newContent: String) {
+        let context = container.viewContext
+
+        let fetchRequest: NSFetchRequest<Chat> = Chat.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.fetchLimit = 1
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            if let lastChat = results.first {
+                lastChat.content = newContent
+                lastChat.isTyping = false
+                lastChat.isUser = false
+            }
+            try context.save()
+        } catch {
+            // Handle error here
+            print("Error updating last element: \(error)")
+        }
+    }
+
 }

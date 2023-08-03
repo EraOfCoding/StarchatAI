@@ -18,7 +18,7 @@ struct ChatMessage: Identifiable {
     let date = Date()
 }
 
-struct ChatRersponse: Decodable {
+struct ChatResponse: Decodable {
     let answer: String
     
     private enum CodingKeys: String, CodingKey {
@@ -29,42 +29,48 @@ struct ChatRersponse: Decodable {
 
 class ChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = []
-    @Environment(\.managedObjectContext) var moc
 
     
     var history: String = ""
     
     func sendMessage(with prompt: String, context: String, spaceObject: String) {
-            
+//
+//        NetworkManagerSingleton.shared.sendMessage(prompt=prompt, context=self.context, spaceObject=self.spaceObject) { chatMessage in
+//            self.messages[self.messages.endIndex - 1] = chatMessage
+//            self.history = "\(prompt) \n \(chatMessage.content)"
+//        }
+//    }
         let urlString = "https://nebula-qzob.onrender.com/chat/\(spaceObject)?context=\(context)&history=\(history.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         guard let url = URL(string: urlString) else {
             print("Invalid URL: \(urlString)")
             return
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let requestBody = "prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         request.httpBody = requestBody.data(using: .utf8)
-        
-        URLSession.shared.dataTask(with: request) { data, urlResponse, error in
+
+        URLSession.shared.dataTask(with: request) { [weak self] data, urlResponse, error in
+            guard let self = self else { return }
             // Handle the response asynchronously
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 if let error = error {
                     print("Error: \(error)")
                     return
                 }
-                
+
                 if let response = urlResponse as? HTTPURLResponse {
                     print("Response Status Code: \(response.statusCode)")
                 }
-                
+
                 if let data = data {
                     do {
                     if let responseString = String(data: data, encoding: .utf8) {
                         print("Response: \(responseString)")
                     }
-                    
+
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -72,6 +78,7 @@ class ChatViewModel: ObservableObject {
                             let chatMessage = ChatMessage(content: answer, isUser: false, isTyping: false)
                             self.messages[self.messages.endIndex - 1] = chatMessage
                             self.history = "\(prompt) \n \(chatMessage.content)"
+                            PersistenceController.shared.updateLastElement(newContent: chatMessage.content)
                         } else {
                             print("Invalid JSON format: Missing 'answer' key")
                         }
@@ -88,15 +95,15 @@ class ChatViewModel: ObservableObject {
                 }
             }
         }.resume()
-        
+
         let userMessage = ChatMessage(content: prompt, isUser: true, isTyping: false)
         let typingMessage = ChatMessage(content: "Typing...", isUser: false, isTyping: true)
-        
+
         // Update UI-related code
         DispatchQueue.main.async {
             self.messages.append(userMessage)
             self.messages.append(typingMessage)
-            
+
 
         }
     }
@@ -118,10 +125,13 @@ extension View {
 
 struct ChatView: View {
     @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.date)
+    ]) var chat: FetchedResults<Chat>
     @ObservedObject var viewModel: ChatViewModel
     let spaceObject: String
     let context: String
-    let randomPrompts = ["Hi! Tell me the story of your creation!", "What is your radius", "What does your name mean?", "What are some astronomical events occurring soon?", "How does the universe expansion affect you?", "Top 5 facts about you.", "What is your age?", "How AI could revolutionize the space exploration.", "What are some astronomical news recently?", "Send me a photo of you"]
+    let randomPrompts = ["Hi! Tell me the story of your creation!", "What is your radius?", "What does your name mean?", "What are some astronomical events occurring soon?", "How does the universe expansion affect you?", "Top 5 facts about you.", "What is your age?", "How AI could revolutionize the space exploration?", "What are some astronomical news recently?", "Send me a photo of you.", "What are you made of?", "Can mankind ever get to you?"]
     
     @State private var promptInput = ""
     
@@ -209,15 +219,13 @@ struct ChatView: View {
             .padding(.bottom, 9)
             .padding(.top, 3)
             .background(Color(red: 28 / 255, green: 28 / 255, blue: 28 / 255))
-            .onChange(of: viewModel.messages.count > 0 ? viewModel.messages[viewModel.messages.endIndex - 1].isTyping : true) {typing in
-                let lastIndex = viewModel.messages.endIndex - 1
-                if !viewModel.messages[lastIndex].isTyping {
-                    print("IT WORKS!!!")
-                    changeLastElementOfCoreData(answer: viewModel.messages[lastIndex].content)
-                }
+            
+        }
+        .onAppear {
+            if chat.count > 0 && chat[chat.endIndex - 1].isTyping {
+                changeLastElementOfCoreData(answer: "Could you please repeat your question. ")
             }
         }
-        
         .preferredColorScheme(.dark)
         
     }
@@ -361,3 +369,77 @@ struct LoadingBubbleView: View {
         dotScale = 0.1
     }
 }
+
+
+//final class NetworkManagerSingleton {
+//    static let shared = NetworkManagerSingleton()
+//
+//    func sendMessage(callback: @escaping ((ChatMessage) -> Void), with prompt: String, context: String, spaceObject: String, history: String, messages: [ChatMessage]) {
+//        let urlString = "https://nebula-qzob.onrender.com/chat/\(spaceObject)?context=\(context)&history=\(history.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+//        guard let url = URL(string: urlString) else {
+//            print("Invalid URL: \(urlString)")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        let requestBody = "prompt=\(prompt.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+//        request.httpBody = requestBody.data(using: .utf8)
+//
+//        URLSession.shared.dataTask(with: request) { [weak self] data, urlResponse, error in
+//            guard let self = self else { return }
+//            // Handle the response asynchronously
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//                if let error = error {
+//                    print("Error: \(error)")
+//                    return
+//                }
+//
+//                if let response = urlResponse as? HTTPURLResponse {
+//                    print("Response Status Code: \(response.statusCode)")
+//                }
+//
+//                if let data = data {
+//                    do {
+//                    if let responseString = String(data: data, encoding: .utf8) {
+//                        print("Response: \(responseString)")
+//                    }
+//
+//                    let decoder = JSONDecoder()
+//                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+//                    if let responseDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                        if let answer = responseDict["answer"] as? String {
+//                            let chatMessage = ChatMessage(content: answer, isUser: false, isTyping: false)
+//                            callback(chatMessage)
+//
+//
+//                        } else {
+//                            print("Invalid JSON format: Missing 'answer' key")
+//                        }
+//                    } else {
+//                        print("Invalid JSON format: Unable to parse response as dictionary")
+//                    }
+//                    } catch {
+//                        print("Error decoding response: \(error)")
+//                        let error = "Sorry, could you please rephrase the question. I am confused..."
+//                        let chatMessage = ChatMessage(content: error, isUser: false, isTyping: false)
+//                        self.messages[self.messages.endIndex - 1] = chatMessage
+//                        self.history = "\(prompt) \n \(error) "
+//                    }
+//                }
+//            }
+//        }.resume()
+//
+//        let userMessage = ChatMessage(content: prompt, isUser: true, isTyping: false)
+//        let typingMessage = ChatMessage(content: "Typing...", isUser: false, isTyping: true)
+//
+//        // Update UI-related code
+//        DispatchQueue.main.async {
+//            self.messages.append(userMessage)
+//            self.messages.append(typingMessage)
+//
+//
+//        }
+//    }
+//}
